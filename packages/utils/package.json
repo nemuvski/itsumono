@@ -1,0 +1,14 @@
+{
+  "name": "@itsumono/utils",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "homepage": "",
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "dist/**",
+    "src"
+  ]
+}
