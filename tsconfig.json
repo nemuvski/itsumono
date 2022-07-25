@@ -12,14 +12,15 @@
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,
     "strictNullChecks": true,
+    "noEmit": false,
     "jsx": "react",
     "declaration": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@itsumono/utils": ["packages/utils"]
+      "@itsumono/utils": ["packages/utils/src"]
     }
   }
 }

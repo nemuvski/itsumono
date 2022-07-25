@@ -4,5 +4,6 @@
     "outDir": "./dist",
   },
   "files": ["src/index.ts"],
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.*"]
 }
