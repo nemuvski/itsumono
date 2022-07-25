@@ -9,6 +9,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/typescript',
     'plugin:regexp/recommended',
     'prettier',
   ],
@@ -17,6 +18,9 @@ module.exports = {
     sourceType: 'script',
   },
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
       node: true,
       typescript: {
@@ -38,15 +42,5 @@ module.exports = {
     'react/prop-types': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'import/order': [
-      'warn',
-      {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
-        pathGroups: [],
-        pathGroupsExcludedImportTypes: ['builtin', 'external'],
-        alphabetize: { order: 'asc', caseInsensitive: true },
-        warnOnUnassignedImports: true,
-      },
-    ],
   },
 }
