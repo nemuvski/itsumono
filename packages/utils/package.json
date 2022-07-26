@@ -1,15 +1,17 @@
 {
   "name": "@itsumono/utils",
   "version": "1.0.0",
-  "description": "ユーティリティ関数、正規表現などを",
+  "description": "ユーティリティ関数や正規表現などを提供する。",
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
+  "type": "module",
   "files": [
     "dist/**"
   ],
   "module": "dist/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc"
