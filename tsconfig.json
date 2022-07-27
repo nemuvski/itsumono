@@ -20,5 +20,6 @@
       "@itsumono/react": ["packages/react/src"],
       "@itsumono/utils": ["packages/utils/src"]
     }
-  }
+  },
+  "exclude": ["examples"]
 }
