@@ -1,4 +1,5 @@
-export * from './types/rc'
+export type { RC } from './types/rc'
 
-export * from './components/Either'
-export * from './components/Maybe'
+import Either from './components/Either'
+import Maybe from './components/Maybe'
+export { Either, Maybe }

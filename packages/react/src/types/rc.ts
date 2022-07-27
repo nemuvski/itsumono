@@ -3,7 +3,7 @@ import type { FC, PropsWithChildren, ReactNode } from 'react'
 /**
  * RC (ReactComponent)
  */
-namespace RC {
+export namespace RC {
   /**
    * ReactNodeのエイリアス
    */
@@ -29,5 +29,3 @@ namespace RC {
    */
   export type WithoutChildren<Props = object> = FC<Props>
 }
-
-export default RC

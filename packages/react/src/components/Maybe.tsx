@@ -1,5 +1,5 @@
 import React from 'react'
-import RC from '../types/rc'
+import { RC } from '../types/rc'
 
 /**
  * 条件式がtrueになった場合のみ子要素を出力するコンポーネント
