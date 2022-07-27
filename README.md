@@ -1,1 +1,5 @@
-<h1 align="center">🍚<br>itsumono</h1>
+# 🍚 itsumono
+
+よく使うユーティリティなどを提供するパッケージです。
+
+*追記予定*
