@@ -13,12 +13,13 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
-    "format": "prettier --check 'packages/**/*.{js,jsx,ts,tsx,json}'",
-    "format:fix": "prettier --write 'packages/**/*.{js,jsx,ts,tsx,json}'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./packages",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ./packages",
+    "format": "prettier --check 'packages/**/*.{js,jsx,ts,tsx}'",
+    "format:fix": "prettier --write 'packages/**/*.{js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "prebuild": "npm run typecheck && npm run lint && npm run format",
     "build": "turbo run build"
   },
   "devDependencies": {
