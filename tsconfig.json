@@ -13,7 +13,7 @@
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "removeComments": true,
+    "removeComments": false,
     "isolatedModules": false,
     "baseUrl": ".",
     "paths": {
