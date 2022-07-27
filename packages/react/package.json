@@ -4,6 +4,9 @@
   "author": "K.Utsunomiya",
   "description": "React.jsに関するユーティリティ関数やコンポーネントを提供する。",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/nemuvski/itsumono",
   "repository": {
     "type": "git",
@@ -13,7 +16,11 @@
   "bugs": {
     "url": "https://github.com/nemuvski/itsumono/issues"
   },
-  "keywords": ["typescript", "utilities", "react"],
+  "keywords": [
+    "typescript",
+    "utilities",
+    "react"
+  ],
   "files": [
     "dist/**"
   ],
@@ -22,5 +29,17 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
