@@ -84,6 +84,21 @@ export function isNumber(value: unknown): value is number {
 }
 
 /**
+ * 引数valueがbigintの場合はTrueを返却
+ *
+ * @param value
+ * @returns {boolean}
+ * @example
+ *    let value = getValueFn()
+ *    if (isBigInt(value)) {
+ *      // この時、valueはbigint値と推論できる
+ *    }
+ */
+export function isBigInt(value: unknown): value is bigint {
+  return typeof value === 'bigint'
+}
+
+/**
  * 引数valueがstringの場合はTrueを返却
  *
  * @param value
@@ -96,6 +111,21 @@ export function isNumber(value: unknown): value is number {
  */
 export function isString(value: unknown): value is string {
   return typeof value === 'string'
+}
+
+/**
+ * 引数valueがsymbolの場合はTrueを返却
+ *
+ * @param value
+ * @returns {boolean}
+ * @example
+ *    let value = getValueFn()
+ *    if (isSymbol(value)) {
+ *      // この時、valueはsymbol値と推論できる
+ *    }
+ */
+export function isSymbol(value: unknown): value is symbol {
+  return typeof value === 'symbol'
 }
 
 /**

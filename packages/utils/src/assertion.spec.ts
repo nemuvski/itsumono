@@ -1,4 +1,15 @@
-import { isBoolean, isDate, isFalsy, isNotNullish, isNullish, isNumber, isPrimitive, isString } from './assertion'
+import {
+  isBigInt,
+  isBoolean,
+  isDate,
+  isFalsy,
+  isNotNullish,
+  isNullish,
+  isNumber,
+  isPrimitive,
+  isString,
+  isSymbol,
+} from './assertion'
 
 describe('assertion.ts', () => {
   test('isNotNullish()', () => {
@@ -48,12 +59,27 @@ describe('assertion.ts', () => {
     expect(isNumber('a')).toBe(false)
   })
 
+  test('isBigInt()', () => {
+    expect(isBigInt(0)).toBe(false)
+    expect(isBigInt(Infinity)).toBe(false)
+    expect(isBigInt(NaN)).toBe(false)
+    expect(isBigInt('a')).toBe(false)
+    expect(isBigInt(0n)).toBe(true)
+    expect(isBigInt(BigInt(32))).toBe(true)
+  })
+
   test('isString()', () => {
     expect(isString('a')).toBe(true)
     expect(isString(0)).toBe(false)
     expect(isString(null)).toBe(false)
     expect(isString(undefined)).toBe(false)
     expect(isString(['a'])).toBe(false)
+  })
+
+  test('isSymbol', () => {
+    expect(isSymbol('a')).toBe(false)
+    expect(isSymbol(Symbol('a'))).toBe(true)
+    expect(isSymbol(Symbol(3))).toBe(true)
   })
 
   test('isBoolean()', () => {
