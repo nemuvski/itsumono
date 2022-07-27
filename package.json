@@ -1,9 +1,7 @@
 {
   "name": "itsumono",
-  "version": "1.0.0",
-  "description": "",
   "author": "K.Utsunomiya",
-  "license": "MIT",
+  "private": true,
   "packageManager": "pnpm@7.6.0",
   "engines": {
     "node": ">=16.13.0",
