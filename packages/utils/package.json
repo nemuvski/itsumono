@@ -10,7 +10,7 @@
   "homepage": "https://github.com/nemuvski/itsumono",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nemuvski/itsumono",
+    "url": "https://github.com/nemuvski/itsumono.git",
     "directory": "packages/utils"
   },
   "bugs": {
