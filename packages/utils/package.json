@@ -28,5 +28,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc"
+  },
+  "typedoc": {
+    "entryPoint": "./src/index.ts",
+    "readmeFile": "./README.md"
   }
 }

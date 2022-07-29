@@ -3,6 +3,7 @@ node_modules/
 # Build
 dist/
 .turbo/
+docs/
 
 # Editor/IDE
 .idea/
