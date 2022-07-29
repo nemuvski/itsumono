@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "name": "next",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf .next out",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@itsumono/react": "../../packages/react",
+    "@itsumono/utils": "../../packages/utils",
+    "next": "12.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.6",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "typescript": "4.7.4"
+  }
+}
