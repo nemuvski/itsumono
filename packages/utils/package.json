@@ -23,11 +23,18 @@
   "files": [
     "dist/**"
   ],
-  "module": "dist/index.js",
+  "module": "dist/index.mjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && tsc"
+    "build": "tsup src/ --format=esm,cjs --dts"
+  },
+  "tsup": {
+    "entry": ["src/index.ts"],
+    "splitting": false,
+    "sourcemap": false,
+    "minify": true,
+    "clean": true
   },
   "typedoc": {
     "entryPoint": "./src/index.ts",
