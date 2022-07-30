@@ -1,4 +1,4 @@
-import { regexNoSpaceChars, regexValidEmailAddressFormat, regexValidUrlFormat } from './regex'
+import { regexNoSpaceChars, regexValidEmailAddressFormat, regexValidUrlFormat } from '../src/regex'
 
 describe('regex.ts', () => {
   test('regexValidEmailAddress', () => {

@@ -9,7 +9,7 @@ import {
   isPrimitive,
   isString,
   isSymbol,
-} from './assertion'
+} from '../src/assertion'
 
 describe('assertion.ts', () => {
   test('isNotNullish()', () => {

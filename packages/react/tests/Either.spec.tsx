@@ -4,10 +4,10 @@
 
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
-import Maybe from './Maybe'
+import Either from '../src/components/Either'
 
-describe('components/Maybe.tsx', () => {
-  describe('<Maybe />', () => {
+describe('components/Either.tsx', () => {
+  describe('<Either />', () => {
     afterEach(() => {
       cleanup()
     })
@@ -15,53 +15,51 @@ describe('components/Maybe.tsx', () => {
     test('[test] 引数指定のみ', () => {
       const { getByTestId } = render(
         <div data-testid='target'>
-          <Maybe test>some</Maybe>
+          <Either test match={'matched'} not={'not-matched'} />
         </div>
       )
       const targetElement = getByTestId('target')
-      expect(targetElement.textContent).toBe('some')
+      expect(targetElement.textContent).toBe('matched')
     })
 
     test('[test] trueをとる', () => {
       const { getByTestId } = render(
         <div data-testid='target'>
-          <Maybe test={true}>
-            <span>some</span>
-          </Maybe>
+          <Either test={true} match={<span>matched</span>} not={<span>not-matched</span>} />
         </div>
       )
       const targetElement = getByTestId('target')
-      expect(targetElement.textContent).toBe('some')
+      expect(targetElement.textContent).toBe('matched')
     })
 
     test('[test] falseをとる', () => {
       const { getByTestId } = render(
         <div data-testid='target'>
-          <Maybe test={false}>some</Maybe>
+          <Either test={false} match={'matched'} not={'not-matched'} />
         </div>
       )
       const targetElement = getByTestId('target')
-      expect(targetElement.textContent).toBe('')
+      expect(targetElement.textContent).toBe('not-matched')
     })
 
     test('[test] undefinedをとる', () => {
       const { getByTestId } = render(
         <div data-testid='target'>
-          <Maybe test={undefined}>some</Maybe>
+          <Either test={undefined} match={'matched'} not={'not-matched'} />
         </div>
       )
       const targetElement = getByTestId('target')
-      expect(targetElement.textContent).toBe('')
+      expect(targetElement.textContent).toBe('not-matched')
     })
 
     test('[test] nullをとる', () => {
       const { getByTestId } = render(
         <div data-testid='target'>
-          <Maybe test={null}>some</Maybe>
+          <Either test={null} match={'matched'} not={'not-matched'} />
         </div>
       )
       const targetElement = getByTestId('target')
-      expect(targetElement.textContent).toBe('')
+      expect(targetElement.textContent).toBe('not-matched')
     })
   })
 })
