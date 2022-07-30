@@ -2,6 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Either } from '@itsumono/react'
+import { isString } from '@itsumono/utils'
 
 const Home: NextPage = () => {
   return (
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div>
-        <Either test={true} match={<>表示される</>} not={<>表示されない</>} />
+        <Either test={isString('test')} match={<>表示される</>} not={<>表示されない</>} />
       </div>
     </>
   )
