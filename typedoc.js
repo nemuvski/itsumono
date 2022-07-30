@@ -11,11 +11,17 @@ const options = {
   excludeInternal: true,
   disableSources: true,
   includeVersion: true,
-  plugin: ['typedoc-theme-hierarchy'],
+  githubPages: false,
+  hideGenerator: false,
+  plugin: ['typedoc-theme-hierarchy', 'typedoc-plugin-extras'],
   theme: 'hierarchy',
   darkHighlightTheme: 'dark-plus',
   htmlLang: 'ja',
-  githubPages: false,
+
+  // typedoc-plugin-extrasプラグイン
+  footerDate: true,
+  footerTime: true,
+  favicon: 'favicon.svg',
 }
 
 module.exports = options
