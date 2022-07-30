@@ -5,9 +5,7 @@
   "packageManager": "pnpm@7.6.0",
   "engines": {
     "node": ">=16.13.0",
-    "pnpm": ">=7.6",
-    "npm": "forbidden, use pnpm",
-    "yarn": "forbidden, use pnpm"
+    "pnpm": ">=7.6"
   },
   "workspaces": [
     "packages/*"
