@@ -1,6 +1,6 @@
 {
   "name": "@itsumono/react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "K.Utsunomiya",
   "description": "React.jsに関するユーティリティ関数やコンポーネントを提供する。",
   "license": "MIT",
