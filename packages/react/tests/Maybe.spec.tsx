@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
 import Maybe from '../src/components/Maybe'

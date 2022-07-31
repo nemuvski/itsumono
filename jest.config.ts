@@ -6,7 +6,7 @@ const config: InitialOptionsTsJest = {
   collectCoverage: false,
   testMatch: ['<rootDir>/packages/**/tests/*.spec.{ts,tsx}'],
   testPathIgnorePatterns: ['/node_modules/'],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 }
 
