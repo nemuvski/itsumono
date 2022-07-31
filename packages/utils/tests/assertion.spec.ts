@@ -3,12 +3,15 @@ import {
   isBoolean,
   isDate,
   isFalsy,
+  isUndefined,
+  isNull,
   isNotNullish,
   isNullish,
   isNumber,
   isPrimitive,
   isString,
   isSymbol,
+  isURL,
 } from '../src/assertion'
 
 describe('assertion.ts', () => {
@@ -50,6 +53,18 @@ describe('assertion.ts', () => {
     expect(isFalsy(undefined)).toBe(true)
     expect(isFalsy(null)).toBe(true)
     expect(isFalsy(1)).toBe(false)
+  })
+
+  test('isUndefined()', () => {
+    expect(isUndefined(undefined)).toBe(true)
+    expect(isUndefined(null)).toBe(false)
+    expect(isUndefined(0)).toBe(false)
+  })
+
+  test('isNull()', () => {
+    expect(isNull(undefined)).toBe(false)
+    expect(isNull(null)).toBe(true)
+    expect(isNull(0)).toBe(false)
   })
 
   test('isNumber()', () => {
@@ -96,5 +111,10 @@ describe('assertion.ts', () => {
     expect(isDate(0)).toBe(false)
     expect(isDate(new Date())).toBe(true)
     expect(isDate(new Date(''))).toBe(true)
+  })
+
+  test('isURL()', () => {
+    expect(isURL(new URL('http://localhost:8080'))).toBe(true)
+    expect(isURL('http://localhost:8080')).toBe(false)
   })
 })

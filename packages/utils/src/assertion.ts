@@ -69,6 +69,34 @@ export function isFalsy(value: unknown): value is Falsy {
 }
 
 /**
+ * 引数valueがundefinedである場合はTrueを返却
+ *
+ * @param value
+ * @returns {boolean}
+ * let value = getValueFn()
+ * if (isUndefined(value)) {
+ *   // この時、valueはundefinedと推論できる
+ * }
+ */
+export function isUndefined(value: unknown): value is undefined {
+  return value === undefined
+}
+
+/**
+ * 引数valueがundefinedである場合はTrueを返却
+ *
+ * @param value
+ * @returns {boolean}
+ * let value = getValueFn()
+ * if (isNull(value)) {
+ *   // この時、valueはnullと推論できる
+ * }
+ */
+export function isNull(value: unknown): value is null {
+  return value === null
+}
+
+/**
  * 引数valueがnumberの場合はTrueを返却
  *
  * @param value
@@ -156,4 +184,19 @@ export function isBoolean(value: unknown): value is boolean {
  */
 export function isDate(value: unknown): value is Date {
   return value instanceof Date
+}
+
+/**
+ * 引数valueがURLオブジェクトの場合はTrueを返却
+ *
+ * @param value
+ * @returns {boolean}
+ * @example
+ * const url = getCurrentPageURLObject()
+ * if (isURL(url)) {
+ *   // この時、valueはURLオブジェクトと推論できる
+ * }
+ */
+export function isURL(value: unknown): value is URL {
+  return value instanceof URL
 }
