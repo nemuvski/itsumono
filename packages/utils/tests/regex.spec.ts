@@ -13,6 +13,8 @@ describe('regex.ts', () => {
     expect(regexValidUrlFormat.test('https://example.com/')).toBe(true)
     expect(regexValidUrlFormat.test('http://example.com/')).toBe(true)
     expect(regexValidUrlFormat.test('https://example.com/none.js')).toBe(true)
+    expect(regexValidUrlFormat.test('https://example.com/?test=123&d=ABC')).toBe(true)
+    expect(regexValidUrlFormat.test('https://example.com/#test-123')).toBe(true)
     expect(regexValidUrlFormat.test('example.jp')).toBe(false)
   })
 
