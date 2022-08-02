@@ -28,6 +28,11 @@ export function isPositiveInteger(value: number | string, includeZero = false, s
  *
  * @param value
  * @returns {boolean}
+ * @example
+ * // 返値: true
+ * isFiniteNumber(10)
+ * // 返値: false
+ * isFiniteNumber(NaN)
  */
 export function isFiniteNumber(value: number) {
   return Number.isFinite(value)
@@ -41,6 +46,15 @@ export function isFiniteNumber(value: number) {
  * @param maxValue
  * @param interval 区間記号 []: min以上max以下, (]: minより大きいmax以下, [): min以上max未満, (): minより大きくmax未満
  * @returns {boolean}
+ * @example
+ * // 返値: true
+ * isNumberInRange(3, 3, 5)
+ * // 返値: false
+ * isNumberInRange(3, 3, 5, '(]')
+ * // 返値: true
+ * isNumberInRange(3, 3, 5, '[)')
+ * // 返値: false
+ * isNumberInRange(5, 3, 5, '()')
  */
 export function isNumberInRange(
   value: number,
