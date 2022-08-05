@@ -74,7 +74,7 @@ export type NotMatchTypeKeys<T, U> = keyof Omit<T, MatchTypeKeys<T, U>>
 export type ExactNotMatchTypeKeys<T, U> = keyof Omit<T, ExactMatchTypeKeys<T, U>>
 
 /**
- * Tのプロパティのうち、最低1つのプロパティは値を持つオブジェクトである型を得る
+ * Tのプロパティのうち、Kで指定したプロパティのうち最低1つは値を持つオブジェクトである型を得る
  *
  * @example
  * type Post = {
