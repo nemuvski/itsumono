@@ -15,7 +15,7 @@
  * type Props = Pick<Post, Keys>
  *
  */
-export type MatchTypeKeys<T, U> = { [K in keyof T]-?: T[K] extends U ? K : never }[keyof T]
+export type MatchTypeKeys<T, U> = { [K in keyof T]-?: U extends T[K] ? K : never }[keyof T]
 
 /**
  * Tのプロパティのうち、Uで指定した型と一致するプロパティのキーを取り出す
