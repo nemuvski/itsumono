@@ -1,6 +1,6 @@
 {
   "name": "@itsumono/utils",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "K.Utsunomiya",
   "description": "ユーティリティ関数や正規表現などを提供する。",
   "license": "MIT",
