@@ -73,6 +73,7 @@ export function isFalsy(value: unknown): value is Falsy {
  *
  * @param value
  * @returns {boolean}
+ * @example
  * let value = getValueFn()
  * if (isUndefined(value)) {
  *   // この時、valueはundefinedと推論できる
@@ -87,6 +88,7 @@ export function isUndefined(value: unknown): value is undefined {
  *
  * @param value
  * @returns {boolean}
+ * @example
  * let value = getValueFn()
  * if (isNull(value)) {
  *   // この時、valueはnullと推論できる
