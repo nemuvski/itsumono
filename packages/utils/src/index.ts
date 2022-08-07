@@ -7,6 +7,7 @@ export type {
   RequiredAtLeastOne,
 } from './types/utils'
 
+export * from './array'
 export * from './assertion'
 export * from './datetime'
 export * from './env'
