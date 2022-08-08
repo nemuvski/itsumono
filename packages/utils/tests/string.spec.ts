@@ -1,6 +1,8 @@
 import {
   removeControlChars,
   removeZWChars,
+  replaceFwAlphanumericsWithHw,
+  replaceHwAlphanumericsWithFw,
   replaceNewLineChars,
   replaceSpacesWithTab,
   replaceTabWithSpaces,
@@ -86,5 +88,15 @@ describe('string.ts', () => {
     expect(replaceNewLineChars('t\r\n\r\te\rs\nt', 'LF')).toBe('t\n\n\te\ns\nt')
     expect(replaceNewLineChars('t\r\n\r\te\rs\nt', 'CR')).toBe('t\r\r\te\rs\rt')
     expect(replaceNewLineChars('t\r\n\r\te\rs\nt', 'CRLF')).toBe('t\r\n\r\n\te\r\ns\r\nt')
+  })
+
+  test('replaceFwAlphanumericsWithHw()', () => {
+    expect(replaceFwAlphanumericsWithHw('０-９ａ-ｚＡ-Ｚ')).toBe('0-9a-zA-Z')
+    expect(replaceFwAlphanumericsWithHw('0-9a-zA-Z')).toBe('0-9a-zA-Z')
+  })
+
+  test('replaceHwAlphanumericsWithFw()', () => {
+    expect(replaceHwAlphanumericsWithFw('0-9a-zA-Z')).toBe('０-９ａ-ｚＡ-Ｚ')
+    expect(replaceHwAlphanumericsWithFw('０-９ａ-ｚＡ-Ｚ')).toBe('０-９ａ-ｚＡ-Ｚ')
   })
 })
