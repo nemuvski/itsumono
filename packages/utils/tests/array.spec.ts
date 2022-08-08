@@ -26,16 +26,17 @@ describe('array.ts', () => {
         createdAt: Date
         updatedAt?: Date
       }
+      const date = new Date('August 19, 1975 23:15:30')
       const arr: Array<Post> = [
-        { title: 'sample', body: 'sample', createdAt: new Date() },
-        { title: 'sample', body: 'sample', revision: 1, createdAt: new Date(), updatedAt: new Date() },
-        { title: 'sample', body: 'sample', revision: 2, createdAt: new Date(), updatedAt: new Date() },
+        { title: 'sample', body: 'sample', createdAt: date },
+        { title: 'sample', body: 'sample', revision: 1, createdAt: date, updatedAt: date },
+        { title: 'sample', body: 'sample', revision: 2, createdAt: date, updatedAt: date },
       ]
       const { matches, notMatches } = separateArray(arr, (post) => !post.updatedAt)
-      expect(matches).toStrictEqual([{ title: 'sample', body: 'sample', createdAt: new Date() }])
+      expect(matches).toStrictEqual([{ title: 'sample', body: 'sample', createdAt: date }])
       expect(notMatches).toStrictEqual([
-        { title: 'sample', body: 'sample', revision: 1, createdAt: new Date(), updatedAt: new Date() },
-        { title: 'sample', body: 'sample', revision: 2, createdAt: new Date(), updatedAt: new Date() },
+        { title: 'sample', body: 'sample', revision: 1, createdAt: date, updatedAt: date },
+        { title: 'sample', body: 'sample', revision: 2, createdAt: date, updatedAt: date },
       ])
     })
   })

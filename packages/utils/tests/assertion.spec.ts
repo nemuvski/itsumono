@@ -15,6 +15,8 @@ import {
 } from '../src/assertion'
 
 describe('assertion.ts', () => {
+  const date = new Date('August 19, 1975 23:15:30')
+
   test('isNotNullish()', () => {
     expect(isNotNullish(0)).toBe(true)
     expect(isNotNullish('')).toBe(true)
@@ -42,7 +44,7 @@ describe('assertion.ts', () => {
     expect(isPrimitive(0n)).toBe(true)
     expect(isPrimitive(false)).toBe(true)
     expect(isPrimitive(Symbol('a'))).toBe(true)
-    expect(isPrimitive(new Date())).toBe(false)
+    expect(isPrimitive(date)).toBe(false)
   })
 
   test('isFalsy()', () => {
@@ -109,7 +111,7 @@ describe('assertion.ts', () => {
 
   test('isDate()', () => {
     expect(isDate(0)).toBe(false)
-    expect(isDate(new Date())).toBe(true)
+    expect(isDate(new Date('August 19, 1975 23:15:30'))).toBe(true)
     expect(isDate(new Date(''))).toBe(true)
   })
 

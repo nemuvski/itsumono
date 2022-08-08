@@ -8,6 +8,8 @@ import {
 } from '../../src/types/utils'
 
 describe('types/utils.ts', () => {
+  const date = new Date('August 19, 1975 23:15:30')
+
   test('MatchTypeKeys', () => {
     type Post = {
       title: string
@@ -78,18 +80,18 @@ describe('types/utils.ts', () => {
     test('RequiredAtLeastOne - Pattern1', () => {
       type Test = RequiredAtLeastOne<Post, 'title' | 'body'>
 
-      expectTypeOf<Test>({ title: 'Hello!', createdAt: new Date() }).toEqualTypeOf<Test>()
-      expectTypeOf<Test>({ body: 'Baby!', createdAt: new Date() }).toEqualTypeOf<Test>()
-      expectTypeOf<Test>({ title: 'Hello!', body: 'Baby!', createdAt: new Date() }).toEqualTypeOf<Test>()
+      expectTypeOf<Test>({ title: 'Hello!', createdAt: date }).toEqualTypeOf<Test>()
+      expectTypeOf<Test>({ body: 'Baby!', createdAt: date }).toEqualTypeOf<Test>()
+      expectTypeOf<Test>({ title: 'Hello!', body: 'Baby!', createdAt: date }).toEqualTypeOf<Test>()
       expectTypeOf<Test>({
         title: 'Hello!',
         body: 'Baby!',
         revision: 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: date,
+        updatedAt: date,
       }).toEqualTypeOf<Test>()
 
-      expectTypeOf({ revision: 0, createdAt: new Date(), updatedAt: new Date() }).not.toEqualTypeOf<Test>()
+      expectTypeOf({ revision: 0, createdAt: date, updatedAt: date }).not.toEqualTypeOf<Test>()
     })
 
     test('RequiredAtLeastOne - Pattern2', () => {
@@ -98,14 +100,14 @@ describe('types/utils.ts', () => {
       expectTypeOf<Test>({ title: 'Hello!' }).toEqualTypeOf<Test>()
       expectTypeOf<Test>({ body: 'Baby!' }).toEqualTypeOf<Test>()
       expectTypeOf<Test>({ revision: 0 }).toEqualTypeOf<Test>()
-      expectTypeOf<Test>({ createdAt: new Date() }).toEqualTypeOf<Test>()
-      expectTypeOf<Test>({ updatedAt: new Date() }).toEqualTypeOf<Test>()
+      expectTypeOf<Test>({ createdAt: date }).toEqualTypeOf<Test>()
+      expectTypeOf<Test>({ updatedAt: date }).toEqualTypeOf<Test>()
       expectTypeOf<Test>({
         title: 'Hello!',
         body: 'Baby!',
         revision: 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: date,
+        updatedAt: date,
       }).toEqualTypeOf<Test>()
 
       expectTypeOf({}).not.toEqualTypeOf<Test>()

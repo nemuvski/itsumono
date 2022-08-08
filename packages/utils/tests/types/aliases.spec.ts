@@ -2,9 +2,11 @@ import { expectTypeOf } from 'expect-type'
 import { Primitive, Falsy, Nullish } from '../../src/types/aliases'
 
 describe('types/aliases.ts', () => {
+  const date = new Date('August 19, 1975 23:15:30')
+
   test('Primitive', () => {
     expectTypeOf({ a: 1 }).not.toMatchTypeOf<Primitive>()
-    expectTypeOf(new Date()).not.toMatchTypeOf<Primitive>()
+    expectTypeOf(date).not.toMatchTypeOf<Primitive>()
 
     expectTypeOf('1').toMatchTypeOf<Primitive>()
     expectTypeOf(1).toMatchTypeOf<Primitive>()
@@ -17,7 +19,7 @@ describe('types/aliases.ts', () => {
 
   test('Falsy', () => {
     expectTypeOf({ a: 1 }).not.toMatchTypeOf<Falsy>()
-    expectTypeOf(new Date()).not.toMatchTypeOf<Falsy>()
+    expectTypeOf(date).not.toMatchTypeOf<Falsy>()
     expectTypeOf('1').not.toMatchTypeOf<Falsy>()
     expectTypeOf(1).not.toMatchTypeOf<Falsy>()
     expectTypeOf(1n).not.toMatchTypeOf<Falsy>()
@@ -34,7 +36,7 @@ describe('types/aliases.ts', () => {
 
   test('Nullish', () => {
     expectTypeOf({ a: 1 }).not.toMatchTypeOf<Nullish>()
-    expectTypeOf(new Date()).not.toMatchTypeOf<Nullish>()
+    expectTypeOf(date).not.toMatchTypeOf<Nullish>()
     expectTypeOf('').not.toMatchTypeOf<Nullish>()
     expectTypeOf(0).not.toMatchTypeOf<Nullish>()
     expectTypeOf(0n).not.toMatchTypeOf<Falsy>()
