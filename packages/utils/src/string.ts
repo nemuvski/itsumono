@@ -1,5 +1,5 @@
 import { isPositiveInteger } from './number'
-import type { RemoveZWCharsOptions } from './types/misc'
+import type { NewLineCodeIdentifier, RemoveZWCharsOptions } from './types/misc'
 
 /**
  * 引数str中の制御文字を取り除いて（空文字に置換）返却
@@ -107,7 +107,7 @@ export function replaceSpacesWithTab(str: string, numSpaces: number) {
  * // 返値: t\r\n\r\n\te\r\ns\r\nt
  * replaceNewLineChars('t\r\n\r\te\rs\nt', 'CRLF')
  */
-export function replaceNewLineChars(str: string, replaceCode: 'LF' | 'CR' | 'CRLF' = 'LF') {
+export function replaceNewLineChars(str: string, replaceCode: NewLineCodeIdentifier = 'LF') {
   let replaceChar: string | undefined
   if (replaceCode === 'LF') {
     replaceChar = '\n'

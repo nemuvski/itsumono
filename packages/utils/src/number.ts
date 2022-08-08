@@ -1,4 +1,5 @@
 import { isString } from './assertion'
+import type { IntervalSymbolIdentifier } from './types/misc'
 
 /**
  * 引数の数値が正の整数（引数の指定で0を含ませることが可能）である場合はTrueを返却する
@@ -60,7 +61,7 @@ export function isNumberInRange(
   value: number,
   minValue: number,
   maxValue: number,
-  interval: '[]' | '(]' | '[)' | '()' = '[]'
+  interval: IntervalSymbolIdentifier = '[]'
 ) {
   if (interval === '(]') {
     return value > minValue && value <= maxValue
