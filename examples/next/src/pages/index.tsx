@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { Either } from '@itsumono/react'
-import { isString } from '@itsumono/utils'
+import { isNumberInRange, isString, removeZWChars } from '@itsumono/utils'
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    console.log(isNumberInRange(3, 1, 5, '()'))
+    console.log(removeZWChars('te\u200bst'))
+  }, [])
+
   return (
     <>
       <Head>
