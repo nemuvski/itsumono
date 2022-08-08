@@ -5,7 +5,7 @@ import type { NewLineCodeIdentifier, RemoveZWCharsOptions } from './types/misc'
  * 引数str中の制御文字を取り除いて（空文字に置換）返却
  *
  * @param str
- * @param excludeCRLF CRLFは置換対象から除く場合はTrueを設定（デフォルト:False）
+ * @param excludeCRLF CRとLF（改行コード）文字は置換対象から除く場合はTrueを設定（デフォルト:False）
  * @returns {string}
  * @see {@link https://en.wikipedia.org/wiki/Control_character}
  * @example
