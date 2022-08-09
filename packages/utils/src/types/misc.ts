@@ -3,6 +3,15 @@
  */
 
 /**
+ * removeControlChars()の引数optionsの型
+ */
+export type RemoveControlCharsOptions = {
+  htab?: boolean
+  lf?: boolean
+  cr?: boolean
+}
+
+/**
  * removeZWChars()の引数optionsの型
  */
 export type RemoveZWCharsOptions = {
