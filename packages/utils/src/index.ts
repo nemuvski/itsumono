@@ -6,7 +6,12 @@ export type {
   ExactNotMatchTypeKeys,
   RequiredAtLeastOne,
 } from './types/utils'
-export type { RemoveZWCharsOptions, NewLineCodeIdentifier, IntervalSymbolIdentifier } from './types/misc'
+export type {
+  RemoveZWCharsOptions,
+  RemoveControlCharsOptions,
+  NewLineCodeIdentifier,
+  IntervalSymbolIdentifier,
+} from './types/misc'
 
 export * from './array'
 export * from './assertion'
