@@ -1,0 +1,10 @@
+{
+  "name": "website",
+  "version": "0.0.0",
+  "scripts": {
+    "gen": "typedoc"
+  },
+  "devDependencies": {
+    "typedoc": "^0.23.14"
+  }
+}

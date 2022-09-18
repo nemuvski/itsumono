@@ -22,5 +22,5 @@
       "@itsumono/utils": ["packages/utils/src"]
     }
   },
-  "exclude": ["examples"]
+  "exclude": ["examples", "website"]
 }

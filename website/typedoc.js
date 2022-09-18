@@ -2,10 +2,10 @@
 const options = {
   name: '@itsumono',
   entryPointStrategy: 'packages',
-  entryPoints: ['.'],
+  entryPoints: ['..'],
   cleanOutputDir: true,
-  out: 'docs',
-  readme: 'README.md',
+  out: '../docs',
+  readme: '../README.md',
   exclude: ['**/*(.spec).ts'],
   excludePrivate: true,
   excludeInternal: true,
@@ -13,15 +13,8 @@ const options = {
   includeVersion: true,
   githubPages: false,
   hideGenerator: false,
-  plugin: ['typedoc-theme-hierarchy', 'typedoc-plugin-extras'],
-  theme: 'hierarchy',
-  darkHighlightTheme: 'dark-plus',
+  plugin: [],
   htmlLang: 'ja',
-
-  // typedoc-plugin-extrasプラグイン
-  footerDate: true,
-  footerTime: true,
-  favicon: 'favicon.svg',
 }
 
 module.exports = options
