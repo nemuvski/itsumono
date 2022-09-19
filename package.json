@@ -12,15 +12,15 @@
     "website"
   ],
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./packages",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ./packages",
-    "format": "prettier --check 'packages/**/*.{js,jsx,ts,tsx}'",
-    "format:fix": "prettier --write 'packages/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "format": "prettier --check './**/*.{js,jsx,ts,tsx}'",
+    "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "prebuild": "npm run typecheck && npm run lint && npm run format",
     "build": "turbo run build --filter=./packages/*",
-    "docs": "npm run gen -w website"
+    "docs": "npm run build -w website"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

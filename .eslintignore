@@ -1,3 +1,5 @@
 examples/
 dist/
 docs/
+build/
+.docusaurus/
