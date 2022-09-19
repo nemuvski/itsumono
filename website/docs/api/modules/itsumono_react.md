@@ -42,10 +42,6 @@ custom_edit_url: null
 
 ``null`` \| `ReactElement`<`any`, `any`\>
 
-#### Defined in
-
-node_modules/.pnpm/@types+react@18.0.15/node_modules/@types/react/index.d.ts:520
-
 ___
 
 ### Maybe
@@ -72,7 +68,3 @@ ___
 #### Returns
 
 ``null`` \| `ReactElement`<`any`, `any`\>
-
-#### Defined in
-
-node_modules/.pnpm/@types+react@18.0.15/node_modules/@types/react/index.d.ts:520

@@ -17,10 +17,6 @@ RC (ReactComponent)
 
 ReactNodeのエイリアス
 
-#### Defined in
-
-[packages/react/src/types/rc.ts:10](https://github.com/nemuvski/itsumono/blob/db7da64/packages/react/src/types/rc.ts#L10)
-
 ___
 
 ### WithChildren
@@ -43,10 +39,6 @@ const YourComponent: RC.WithChildren<{ value: string }> = ({ value, children }) 
 | :------ | :------ |
 | `Props` | `object` |
 
-#### Defined in
-
-[packages/react/src/types/rc.ts:20](https://github.com/nemuvski/itsumono/blob/db7da64/packages/react/src/types/rc.ts#L20)
-
 ___
 
 ### WithoutChildren
@@ -68,7 +60,3 @@ const YourComponent: RC.WithoutChildren<{ value: string }> = ({ value }) => {
 | Name | Type |
 | :------ | :------ |
 | `Props` | `object` |
-
-#### Defined in
-
-[packages/react/src/types/rc.ts:30](https://github.com/nemuvski/itsumono/blob/db7da64/packages/react/src/types/rc.ts#L30)
