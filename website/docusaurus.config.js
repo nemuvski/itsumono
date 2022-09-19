@@ -11,6 +11,7 @@ const pluginTypedocConfig = {
   sidebar: {
     fullNames: true,
   },
+  disableSources: true,
 
   // NOTE: 不要かもしれないが一応明記しておく
   exclude: ['**/*(.spec).ts'],
