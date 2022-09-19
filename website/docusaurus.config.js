@@ -22,7 +22,7 @@ const config = {
   title: '@itsumono',
   url: 'https://itsumono.netlify.app',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
   projectName: 'itsumono',
