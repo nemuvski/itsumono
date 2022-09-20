@@ -3,20 +3,6 @@ const lightCodeTheme = require('prism-react-renderer/themes/github')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
-/** @type {Partial<import('docusaurus-plugin-typedoc/dist/types').PluginOptions>} */
-const pluginTypedocConfig = {
-  entryPointStrategy: 'packages',
-  entryPoints: ['../packages/utils/', '../packages/react/'],
-  cleanOutputDir: true,
-  sidebar: {
-    fullNames: true,
-  },
-  disableSources: true,
-
-  // NOTE: 不要かもしれないが一応明記しておく
-  exclude: ['**/*(.spec).ts'],
-}
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '@itsumono',
@@ -46,8 +32,6 @@ const config = {
       },
     ],
   ],
-
-  plugins: [['docusaurus-plugin-typedoc', pluginTypedocConfig]],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
