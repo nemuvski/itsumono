@@ -1,13 +1,18 @@
 ---
-id: "itsumono_react.RC"
-title: "Namespace: RC"
-sidebar_label: "@itsumono/react.RC"
+id: "rc"
+title: "RC"
+sidebar_label: "RC"
 custom_edit_url: null
 ---
 
-[@itsumono/react](../modules/itsumono_react.md).RC
+## Summary
 
-RC (ReactComponent)
+RC (React Component)の略。
+
+コンポーネントに関する型を提供します。
+
+`children` (子要素)を持つコンポーネントや独自のプロパティを持つコンポーネントの定義などに利用できます。
+
 
 ## Type Aliases
 

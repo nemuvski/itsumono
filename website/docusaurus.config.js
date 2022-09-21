@@ -45,9 +45,9 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'api/index',
+            docId: 'packages/index',
             position: 'left',
-            label: 'API',
+            label: 'Packages',
           },
           {
             href: 'https://github.com/nemuvski/itsumono',
