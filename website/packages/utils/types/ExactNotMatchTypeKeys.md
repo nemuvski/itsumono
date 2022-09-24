@@ -5,7 +5,7 @@ sidebar_label: "ExactNotMatchTypeKeys"
 custom_edit_url: null
 ---
 
-**ExactNotMatchTypeKeys**<`T`, `U`\>: keyof `Omit`<`T`, [`ExactMatchTypeKeys`](./ExactMatchTypeKeys.md)<`T`, `U`\>\>
+**ExactNotMatchTypeKeys**<`T`, `U`\>: keyof `Omit`<`T`, [`ExactMatchTypeKeys`](ExactMatchTypeKeys.md)<`T`, `U`\>\>
 
 Tのプロパティのうち、Uで指定した型を持プロパティのキーを取り出す
 

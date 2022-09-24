@@ -21,6 +21,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
+          path: 'packages',
+          routeBasePath: 'packages',
           breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
         },
@@ -43,7 +45,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'packages/index',
+            docId: 'index',
             position: 'left',
             label: 'Packages',
           },
