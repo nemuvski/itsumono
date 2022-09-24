@@ -5,8 +5,6 @@ sidebar_label: "RC"
 custom_edit_url: null
 ---
 
-## Summary
-
 RC (React Component)の略。
 
 コンポーネントに関する型を提供します。
@@ -18,7 +16,7 @@ RC (React Component)の略。
 
 ### Element
 
-Ƭ **Element**: `ReactNode`
+**Element**: `ReactNode`
 
 ReactNodeのエイリアス
 
@@ -26,7 +24,7 @@ ___
 
 ### WithChildren
 
-Ƭ **WithChildren**<`Props`\>: `FC`<`PropsWithChildren`<`Props`\>\>
+**WithChildren**<`Props`\>: `FC`<`PropsWithChildren`<`Props`\>\>
 
 子要素を持つ(childrenプロパティあり)コンポーネントの型
 
@@ -48,7 +46,7 @@ ___
 
 ### WithoutChildren
 
-Ƭ **WithoutChildren**<`Props`\>: `FC`<`Props`\>
+**WithoutChildren**<`Props`\>: `FC`<`Props`\>
 
 子要素を持たない(childrenプロパティなし)コンポーネントの型
 

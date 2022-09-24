@@ -2,13 +2,10 @@
 id: "either"
 title: "Either"
 sidebar_label: "Either"
-sidebar_position: 0
 custom_edit_url: null
 ---
 
-## Summary
-
-▸ **Either**(`props`, `context?`): ``null`` \| `ReactElement`<`any`, `any`\>
+**Either**(`props`, `context?`): ``null`` \| `ReactElement`<`any`, `any`\>
 
 条件式がtrue/falseで出力する内容を切り替えるコンポーネント
 

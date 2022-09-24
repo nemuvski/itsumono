@@ -2,13 +2,10 @@
 id: "maybe"
 title: "Maybe"
 sidebar_label: "Maybe"
-sidebar_position: 0
 custom_edit_url: null
 ---
 
-## Summary
-
-▸ **Maybe**(`props`, `context?`): ``null`` \| `ReactElement`<`any`, `any`\>
+**Maybe**(`props`, `context?`): ``null`` \| `ReactElement`<`any`, `any`\>
 
 条件式がtrueになった場合のみ子要素を出力するコンポーネント
 
