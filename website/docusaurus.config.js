@@ -1,7 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const codeTheme = require('prism-react-renderer/themes/oceanicNext')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -58,11 +56,10 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} @itsumono`,
+        copyright: `Copyright © 2022 @itsumono`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: codeTheme,
       },
     },
 }
