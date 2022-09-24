@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 import clsx from 'clsx'
+import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
 import HomepageFeatures from '@site/src/components/HomepageFeatures'
@@ -14,6 +15,11 @@ function HomepageHeader() {
       <div className='container'>
         <h1 className='hero__title'>{siteConfig.title}</h1>
         <p className='hero__subtitle'>{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link to='packages' className='button button--contained button--secondary button--lg'>
+            使ってみる
+          </Link>
+        </div>
       </div>
     </header>
   )

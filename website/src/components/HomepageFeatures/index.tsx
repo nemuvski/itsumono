@@ -1,56 +1,56 @@
 import React from 'react'
 import clsx from 'clsx'
+import Feature1 from '@site/src/components/svg/Feature1'
+import Feature2 from '@site/src/components/svg/Feature2'
+import Feature3 from '@site/src/components/svg/Feature3'
 import styles from './styles.module.css'
 
 type FeatureItem = {
   title: string
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>
+  Svg: React.FC<React.ComponentProps<'svg'>>
+  className: string
   description: JSX.Element
 }
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'いつもの、とは？',
+    Svg: Feature1,
+    className: styles.featureSvg,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and used to get your website up and running
-        quickly.
+        <em>いつもの</em>は、開発時に頻繁に書くコード（主にユーティリティなど）のことを指しています。
+        <br />
+        プロジェクトにインストールすることで、サクッと<em>いつもの</em>
+        を使うことができる、そんなパッケージを目指しています。
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'どんなもの？',
+    Svg: Feature2,
+    className: styles.featureSvgLarge,
     description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and move your docs into the{' '}
-        <code>docs</code> directory.
-      </>
+      <>開発でよく使うユーティリティ関数、TypeScriptの型ユーティリティを提供するMITライセンスのパッケージです。</>
     ),
   },
   {
-    title: 'Powered by React',
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same
-        header and footer.
-      </>
-    ),
+    title: '利用できる言語は？',
+    Svg: Feature3,
+    className: styles.featureSvg,
+    description: <>TypeScriptで開発しており、JavaScript、またはTypeScriptのプロジェクトでご利用いただけます。</>,
   },
 ]
 
-function Feature({ title, description }: FeatureItem) {
+function Feature({ title, description, Svg, className }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className='text--center'>{/*<Svg className={styles.featureSvg} role='img' />*/}</div>
+      <div className='text--center'>
+        <Svg className={className} role='img' />
+      </div>
       <div className='text--center padding-horiz--md'>
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p className='text--left'>{description}</p>
       </div>
     </div>
   )

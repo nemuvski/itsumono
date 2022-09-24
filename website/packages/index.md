@@ -1,7 +1,7 @@
 ---
 id: "index"
-title: "Packages"
-sidebar_label: "Packages"
+title: "パッケージ"
+sidebar_label: "パッケージ"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -15,8 +15,7 @@ custom_edit_url: null
 ![npm](https://img.shields.io/bundlephobia/min/@itsumono/utils?style=flat-square)
 ![npm](https://img.shields.io/npm/l/@itsumono/utils?style=flat-square)
 
-- [@itsumono/react](react/index.md)
-
+- [@itsumono/utils](utils/index.md)
 
 ## @itsumono/react
 
@@ -25,4 +24,4 @@ custom_edit_url: null
 ![npm](https://img.shields.io/bundlephobia/min/@itsumono/react?style=flat-square)
 ![npm](https://img.shields.io/npm/l/@itsumono/react?style=flat-square)
 
-- [@itsumono/utils](utils/index.md)
+- [@itsumono/react](react/index.md)

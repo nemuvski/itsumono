@@ -6,6 +6,8 @@ const config = {
   title: '@itsumono',
   url: 'https://itsumono.netlify.app',
   baseUrl: '/',
+  tagline: 'サクッといつものを導入',
+  titleDelimiter: '—',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo.png',
@@ -36,6 +38,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: '@itsumono',
         logo: {
@@ -47,7 +54,7 @@ const config = {
             type: 'doc',
             docId: 'index',
             position: 'left',
-            label: 'Packages',
+            label: 'パッケージ',
           },
           {
             href: 'https://github.com/nemuvski/itsumono',
@@ -58,6 +65,41 @@ const config = {
       },
       footer: {
         style: 'dark',
+        logo: {
+          alt: '@itsumono',
+          src: 'img/logo.png',
+          href: '/',
+          width: 48,
+          height: 48,
+        },
+        links: [
+          {
+            title: 'パッケージ',
+            items: [
+              {
+                label: '@itsumono/utils',
+                to: 'packages/utils',
+              },
+              {
+                label: '@itsumono/react',
+                to: 'packages/react',
+              },
+            ],
+          },
+          {
+            title: 'その他',
+            items: [
+              {
+                label: 'GitHub',
+                to: 'https://github.com/nemuvski/itsumono',
+              },
+              {
+                label: '開発者',
+                to: 'https://github.com/nemuvski',
+              },
+            ],
+          },
+        ],
         copyright: `Copyright © 2022 @itsumono`,
       },
       prism: {
