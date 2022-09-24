@@ -1,5 +1,5 @@
 ---
-id: "remove-zw-chars-options"
+id: "remove-zwchars-options"
 title: "RemoveZWCharsOptions"
 sidebar_label: "RemoveZWCharsOptions"
 custom_edit_url: null
