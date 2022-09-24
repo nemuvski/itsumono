@@ -1,6 +1,6 @@
 ---
 id: "index"
-title: "itsumono"
+title: "Packages"
 sidebar_label: "Packages"
 sidebar_position: 0
 custom_edit_url: null
@@ -15,7 +15,7 @@ custom_edit_url: null
 ![npm](https://img.shields.io/bundlephobia/min/@itsumono/utils?style=flat-square)
 ![npm](https://img.shields.io/npm/l/@itsumono/utils?style=flat-square)
 
-- [@itsumono/react](react/components/itsumono_react.md)
+- [@itsumono/react](react/index.md)
 
 
 ## @itsumono/react
@@ -25,4 +25,4 @@ custom_edit_url: null
 ![npm](https://img.shields.io/bundlephobia/min/@itsumono/react?style=flat-square)
 ![npm](https://img.shields.io/npm/l/@itsumono/react?style=flat-square)
 
-- [@itsumono/utils](utils/functions/itsumono_utils.md)
+- [@itsumono/utils](utils/index.md)

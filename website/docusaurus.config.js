@@ -9,7 +9,7 @@ const config = {
   url: 'https://itsumono.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo.png',
   projectName: 'itsumono',
   i18n: {
