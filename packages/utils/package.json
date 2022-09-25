@@ -7,7 +7,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://itsumono.netlify.app/modules/_itsumono_utils",
+  "homepage": "https://itsumono.netlify.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/nemuvski/itsumono.git",

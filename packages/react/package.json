@@ -7,7 +7,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://itsumono.netlify.app/modules/_itsumono_react",
+  "homepage": "https://itsumono.netlify.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/nemuvski/itsumono.git",
@@ -32,15 +32,11 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.0.0"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.0.0"
   },
   "tsup": {
     "entry": ["src/index.ts"],

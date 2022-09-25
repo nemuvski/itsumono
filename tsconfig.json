@@ -6,7 +6,7 @@
     "lib": ["dom", "esnext"],
     "strict": true,
     "noEmit": false,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
@@ -22,5 +22,5 @@
       "@itsumono/utils": ["packages/utils/src"]
     }
   },
-  "exclude": ["examples"]
+  "exclude": ["examples", "website"]
 }
