@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
     Svg: Feature2,
     className: styles.featureSvgLarge,
     description: (
-      <>開発でよく使うユーティリティ関数、TypeScriptの型ユーティリティを提供するMITライセンスのパッケージです。</>
+      <>開発でよく使うユーティリティ関数、Reactコンポーネント、TypeScriptの型ユーティリティを提供するパッケージです。</>
     ),
   },
   {
