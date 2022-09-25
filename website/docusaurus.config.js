@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const codeTheme = require('prism-react-renderer/themes/oceanicNext')
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '@itsumono',
@@ -31,6 +28,22 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+      },
+    ],
+  ],
+
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @see {@link https://github.com/easyops-cn/docusaurus-search-local#theme-options} */
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        language: ['en', 'ja'],
+        docsRouteBasePath: '/packages',
+        docsDir: 'packages',
       },
     ],
   ],
@@ -103,7 +116,7 @@ const config = {
         copyright: `Copyright © 2022 @itsumono`,
       },
       prism: {
-        theme: codeTheme,
+        theme: require('prism-react-renderer/themes/oceanicNext'),
       },
     },
 }
