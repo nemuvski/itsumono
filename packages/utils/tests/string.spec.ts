@@ -1,4 +1,5 @@
 import {
+  escapeRegExpChars,
   removeControlChars,
   removeZWChars,
   replaceFwAlphanumericsWithHw,
@@ -6,6 +7,7 @@ import {
   replaceNewLineChars,
   replaceSpacesWithTab,
   replaceTabWithSpaces,
+  strf,
 } from '../src/string'
 
 describe('string.ts', () => {
@@ -115,5 +117,62 @@ describe('string.ts', () => {
   test('replaceHwAlphanumericsWithFw()', () => {
     expect(replaceHwAlphanumericsWithFw('0-9a-zA-Z')).toBe('０-９ａ-ｚＡ-Ｚ')
     expect(replaceHwAlphanumericsWithFw('０-９ａ-ｚＡ-Ｚ')).toBe('０-９ａ-ｚＡ-Ｚ')
+  })
+
+  test('escapeRegExpChars()', () => {
+    expect(escapeRegExpChars('a 0')).toBe('a 0')
+    expect(escapeRegExpChars('.')).toBe('\\.')
+    expect(escapeRegExpChars('*')).toBe('\\*')
+    expect(escapeRegExpChars('+')).toBe('\\+')
+    expect(escapeRegExpChars('-')).toBe('\\-')
+    expect(escapeRegExpChars('?')).toBe('\\?')
+    expect(escapeRegExpChars('^')).toBe('\\^')
+    expect(escapeRegExpChars('$')).toBe('\\$')
+    expect(escapeRegExpChars('|')).toBe('\\|')
+    expect(escapeRegExpChars('{}')).toBe('\\{\\}')
+    expect(escapeRegExpChars('()')).toBe('\\(\\)')
+    expect(escapeRegExpChars('[]')).toBe('\\[\\]')
+    expect(escapeRegExpChars('\\')).toBe('\\\\')
+    expect(escapeRegExpChars('test-123')).toBe('test\\-123')
+
+    const escapedStr = escapeRegExpChars('test-123')
+    const reg = new RegExp(escapedStr)
+    expect('test-1234'.replace(reg, 'OK')).toBe('OK4')
+  })
+
+  test('strf()', () => {
+    expect(strf('hello {}', {})).toBe('hello {}')
+    expect(strf('{0} {1} {2} {3} {0}', { 0: 'Grape' })).toBe('Grape {1} {2} {3} Grape')
+    expect(strf('{0} {1} {2} {3} {0}', { 0: '{1}', 1: '{2}' })).toBe('{1} {2} {2} {3} {1}')
+    expect(strf('{C-3PO}', { 'C-3PO': 'Thank the maker!' })).toBe('Thank the maker!')
+    expect(strf('{Who R U?}\n{I am ...}', { 'Who R U?': 'Who are you?', 'I am ...': 'I am Jar Jar Binks.' })).toBe(
+      'Who are you?\nI am Jar Jar Binks.'
+    )
+    expect(strf('/user/{id}', { id: 29 })).toBe('/user/29')
+    expect(strf('/user/{userId}/post/{postId}', { userId: 29, postId: 33 })).toBe('/user/29/post/33')
+    expect(strf('/user/{id}/', { id: 29n })).toBe('/user/29/')
+    expect(strf('{t} {f}', { t: true, f: false })).toBe('true false')
+    expect(strf('{s}', { s: Symbol('シンボル') })).toBe('Symbol(シンボル)')
+    expect(strf('{n} {ufd}', { n: null, ufd: undefined })).toBe('null undefined')
+    expect(strf('{year}', { year: new Date('August 19, 1975 23:15:30').getFullYear() })).toBe('1975')
+    expect(
+      strf('He is {last-name} {first-name}. {last-name} is {age} years old.', {
+        'last-name': 'Taro',
+        'first-name': 'yamada'.toUpperCase(),
+        age: 25,
+      })
+    ).toBe('He is Taro YAMADA. Taro is 25 years old.')
+    expect(
+      strf(
+        'He is {last-name} {first-name}. {last-name} is {age} years old.',
+        { 'last-name': 'Taro', 'first-name': 'yamada', age: 25 },
+        (fieldName, fieldValue) => {
+          if (fieldName === 'first-name') {
+            return fieldValue.toString().toUpperCase()
+          }
+          return String(fieldValue).toString()
+        }
+      )
+    ).toBe('He is Taro YAMADA. Taro is 25 years old.')
   })
 })
