@@ -14,10 +14,13 @@ custom_edit_url: null
 ```ts
 // 返値: true
 isNumberInRange(3, 3, 5)
+
 // 返値: false
 isNumberInRange(3, 3, 5, '(]')
+
 // 返値: true
 isNumberInRange(3, 3, 5, '[)')
+
 // 返値: false
 isNumberInRange(5, 3, 5, '()')
 ```

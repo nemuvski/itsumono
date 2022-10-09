@@ -18,6 +18,7 @@ replaceCodeがLF,CR,CRLF以外の場合はエラー
 ```ts
 // 返値: t\n\n\te\ns\nt
 replaceNewLineChars('t\r\n\r\te\rs\nt')
+
 // 返値: t\r\n\r\n\te\r\ns\r\nt
 replaceNewLineChars('t\r\n\r\te\rs\nt', 'CRLF')
 ```

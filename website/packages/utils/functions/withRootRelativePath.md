@@ -14,6 +14,7 @@ custom_edit_url: null
 ```ts
 // 返値: /path/to/test
 withRootRelativePath('/path/to/test')
+
 // 返値: /path/to/test
 withRootRelativePath('path/to/test')
 ```

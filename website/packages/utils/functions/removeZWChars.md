@@ -24,6 +24,7 @@ custom_edit_url: null
 ```ts
 // 返値: te\u200Cst
 removeZWChars('te\u200B\u200Cst')
+
 // 返値: test
 removeZWChars('te\u200Bst\u200C', { zwnj: true })
 ```

@@ -29,6 +29,7 @@ custom_edit_url: null
 ```ts
 // 返値: \ttest\n
 removeControlChars('\ttest\n')
+
 // 返値: test
 removeControlChars('\ttest\n', { htab: true, lf: true })
 ```
