@@ -24,6 +24,7 @@ import type { ClsOptions, NewLineCodeIdentifier, RemoveControlCharsOptions, Remo
  * @example
  * // 返値: \ttest\n
  * removeControlChars('\ttest\n')
+ *
  * // 返値: test
  * removeControlChars('\ttest\n', { htab: true, lf: true })
  */
@@ -56,6 +57,7 @@ export function removeControlChars(str: string, options?: RemoveControlCharsOpti
  * @example
  * // 返値: te\u200Cst
  * removeZWChars('te\u200B\u200Cst')
+ *
  * // 返値: test
  * removeZWChars('te\u200Bst\u200C', { zwnj: true })
  */
@@ -81,6 +83,7 @@ export function removeZWChars(str: string, options?: RemoveZWCharsOptions) {
  * @example
  * // 返値: te  st
  * replaceTabWithSpaces('te\tst', 2)
+ *
  * // 返値: te st
  * replaceTabWithSpaces('te\tst', 1)
  */
@@ -121,6 +124,7 @@ export function replaceSpacesWithTab(str: string, numSpaces: number) {
  * @example
  * // 返値: t\n\n\te\ns\nt
  * replaceNewLineChars('t\r\n\r\te\rs\nt')
+ *
  * // 返値: t\r\n\r\n\te\r\ns\r\nt
  * replaceNewLineChars('t\r\n\r\te\rs\nt', 'CRLF')
  */
@@ -153,6 +157,7 @@ export function replaceNewLineChars(str: string, replaceCode: NewLineCodeIdentif
  * @example
  * // 返値: Aa0
  * replaceFwAlphanumericsWithHw('Ａａ０')
+ *
  * // 返値: Aa0
  * replaceFwAlphanumericsWithHw('Ａa0')
  */
@@ -177,6 +182,7 @@ export function replaceFwAlphanumericsWithHw(str: string) {
  * @example
  * // 返値: Ａａ０
  * replaceFwAlphanumericsWithHw('Aa0')
+ *
  * // 返値: Ａａ０
  * replaceFwAlphanumericsWithHw('Ａa0')
  */
@@ -196,6 +202,7 @@ export function replaceHwAlphanumericsWithFw(str: string) {
  * @example
  * // 返値: test\\-123
  * const escapedStr = escapeRegExpChars('test-123')
+ *
  * // RegExpで利用する
  * const reg = new RegExp(escapedStr)
  */
@@ -214,11 +221,13 @@ export function escapeRegExpChars(str: string) {
  * @example
  * // 返値: /user/29/post/33
  * strf('/user/{userId}/post/{postId}', { userId: 29, postId: 33 })
+ *
  * // 返値: He is Taro YAMADA. Taro is 25 years old.
  * strf(
  *   'He is {last-name} {first-name}. {last-name} is {age} years old.',
  *   { 'last-name': 'Taro', 'first-name': 'yamada'.toUpperCase(), age: 25 }
  * )
+ *
  * // 返値: He is Taro YAMADA. Taro is 25 years old.
  * strf(
  *   'He is {last-name} {first-name}. {last-name} is {age} years old.',
@@ -230,8 +239,10 @@ export function escapeRegExpChars(str: string) {
  *     return String(fieldValue).toString()
  *   }
  * )
+ *
  * // 返値: true false
  * strf('{t} {f}', { t: true, f: false })
+ *
  * // 返値: null undefined
  * strf('{n} {und}', { n: null, und: undefined })
  */

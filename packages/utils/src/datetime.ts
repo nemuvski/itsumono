@@ -6,6 +6,7 @@
  * @example
  * // 返値: false
  * isInvalidDate(new Date())
+ *
  * // 返値: true
  * isInvalidDate(new Date(''))
  */

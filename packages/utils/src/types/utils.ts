@@ -9,8 +9,10 @@
  *   createdAt: Date
  *   updatedAt?: Date
  * }
+ *
  * // Keys => "revision" | "createdAt" | "updatedAt"
  * type Keys = MatchTypeKeys<Post, Date | undefined>
+ *
  * // Props => { revision?: number; createdAt: Date; updatedAt?: Date }
  * type Props = Pick<Post, Keys>
  *
@@ -28,8 +30,10 @@ export type MatchTypeKeys<T, U> = { [K in keyof T]-?: U extends T[K] ? K : never
  *   createdAt: Date
  *   updatedAt?: Date
  * }
+ *
  * // Keys => "updatedAt"
  * type Keys = ExactMatchTypeKeys<Post, Date | undefined>
+ *
  * // Props => { updatedAt?: Date }
  * type Props = Pick<Post, Keys>
  */
@@ -48,8 +52,10 @@ export type ExactMatchTypeKeys<T, U> = {
  *   createdAt: Date
  *   updatedAt?: Date
  * }
+ *
  * // Keys => "title" | "body"
  * type Keys = NotMatchTypeKeys<Post, Date | undefined>
+ *
  * // Props => { title: string; body: string }
  * type Props = Pick<Post, Keys>
  */
@@ -66,8 +72,10 @@ export type NotMatchTypeKeys<T, U> = keyof Omit<T, MatchTypeKeys<T, U>>
  *   createdAt: Date
  *   updatedAt?: Date
  * }
+ *
  * // Keys => "title" | "body" | "revision" | "createdAt"
  * type Keys = ExactNotMatchTypeKeys<Post, Date | undefined>
+ *
  * // Props => { title: string; body: string; revision?: number; createdAt: Date }
  * type Props = Pick<Post, Keys>
  */
@@ -84,6 +92,7 @@ export type ExactNotMatchTypeKeys<T, U> = keyof Omit<T, ExactMatchTypeKeys<T, U>
  *   createdAt: Date
  *   updatedAt?: Date
  * }
+ *
  * // --- [例1] titleまたはbodyのうち1つは値をとり（undefinedではない）、他プロパティは既存の型に従うオブジェクト型を扱う --- //
  * // Props1 =>
  * //   ({ revision?: number; createdAt: Date; updatedAt?: Date } & { title?: string; body?: string } & { title: string })
