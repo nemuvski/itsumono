@@ -23,6 +23,7 @@ custom_edit_url: null
 ```ts
 // 返値: Ａａ０
 replaceFwAlphanumericsWithHw('Aa0')
+
 // 返値: Ａａ０
 replaceFwAlphanumericsWithHw('Ａa0')
 ```

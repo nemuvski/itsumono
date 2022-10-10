@@ -1,5 +1,7 @@
+import { isBoolean, isNullish, isNumber, isString } from './assertion'
 import { isPositiveInteger } from './number'
-import type { NewLineCodeIdentifier, RemoveControlCharsOptions, RemoveZWCharsOptions } from './types/misc'
+import type { Primitive } from './types/aliases'
+import type { ClsOptions, NewLineCodeIdentifier, RemoveControlCharsOptions, RemoveZWCharsOptions } from './types/misc'
 
 /**
  * 引数str中の制御文字を取り除いて（空文字に置換）返却
@@ -22,6 +24,7 @@ import type { NewLineCodeIdentifier, RemoveControlCharsOptions, RemoveZWCharsOpt
  * @example
  * // 返値: \ttest\n
  * removeControlChars('\ttest\n')
+ *
  * // 返値: test
  * removeControlChars('\ttest\n', { htab: true, lf: true })
  */
@@ -54,6 +57,7 @@ export function removeControlChars(str: string, options?: RemoveControlCharsOpti
  * @example
  * // 返値: te\u200Cst
  * removeZWChars('te\u200B\u200Cst')
+ *
  * // 返値: test
  * removeZWChars('te\u200Bst\u200C', { zwnj: true })
  */
@@ -79,6 +83,7 @@ export function removeZWChars(str: string, options?: RemoveZWCharsOptions) {
  * @example
  * // 返値: te  st
  * replaceTabWithSpaces('te\tst', 2)
+ *
  * // 返値: te st
  * replaceTabWithSpaces('te\tst', 1)
  */
@@ -119,6 +124,7 @@ export function replaceSpacesWithTab(str: string, numSpaces: number) {
  * @example
  * // 返値: t\n\n\te\ns\nt
  * replaceNewLineChars('t\r\n\r\te\rs\nt')
+ *
  * // 返値: t\r\n\r\n\te\r\ns\r\nt
  * replaceNewLineChars('t\r\n\r\te\rs\nt', 'CRLF')
  */
@@ -151,6 +157,7 @@ export function replaceNewLineChars(str: string, replaceCode: NewLineCodeIdentif
  * @example
  * // 返値: Aa0
  * replaceFwAlphanumericsWithHw('Ａａ０')
+ *
  * // 返値: Aa0
  * replaceFwAlphanumericsWithHw('Ａa0')
  */
@@ -175,6 +182,7 @@ export function replaceFwAlphanumericsWithHw(str: string) {
  * @example
  * // 返値: Ａａ０
  * replaceFwAlphanumericsWithHw('Aa0')
+ *
  * // 返値: Ａａ０
  * replaceFwAlphanumericsWithHw('Ａa0')
  */
@@ -183,4 +191,138 @@ export function replaceHwAlphanumericsWithFw(str: string) {
     // 0xFEE0は0xFF10と0x0030の差分
     return String.fromCharCode(substring.charCodeAt(0) + 0xfee0)
   })
+}
+
+/**
+ * 引数str中の正規表現でエスケープが必要な文字をエスケープしたものを返却
+ *
+ * @param str
+ * @returns {string}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#flags_in_constructor}
+ * @example
+ * // 返値: test\\-123
+ * const escapedStr = escapeRegExpChars('test-123')
+ *
+ * // RegExpで利用する
+ * const reg = new RegExp(escapedStr)
+ */
+export function escapeRegExpChars(str: string) {
+  // NOTE: $&については https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/string/replace#specifying_a_string_as_the_replacement
+  return str.replace(/[.*+\-?^$|{}()[\]\\]/g, '\\$&')
+}
+
+/**
+ * 引数str(テンプレート)に引数fieldsの値を埋め込んだ文字列を返却
+ *
+ * @param str テンプレート
+ * @param fields 埋め込む値
+ * @param transFn 埋め込む際の処理(出力するロジックをカスタマイズしたい場合のみ)
+ * @returns {string}
+ * @example
+ * // 返値: /user/29/post/33
+ * strf('/user/{userId}/post/{postId}', { userId: 29, postId: 33 })
+ *
+ * // 返値: He is Taro YAMADA. Taro is 25 years old.
+ * strf(
+ *   'He is {last-name} {first-name}. {last-name} is {age} years old.',
+ *   { 'last-name': 'Taro', 'first-name': 'yamada'.toUpperCase(), age: 25 }
+ * )
+ *
+ * // 返値: He is Taro YAMADA. Taro is 25 years old.
+ * strf(
+ *   'He is {last-name} {first-name}. {last-name} is {age} years old.',
+ *   { 'last-name': 'Taro', 'first-name': 'yamada', age: 25 },
+ *   (fieldName, fieldValue) => {
+ *     if (fieldName === 'first-name') {
+ *       return fieldValue.toString().toUpperCase()
+ *     }
+ *     return String(fieldValue).toString()
+ *   }
+ * )
+ *
+ * // 返値: true false
+ * strf('{t} {f}', { t: true, f: false })
+ *
+ * // 返値: null undefined
+ * strf('{n} {und}', { n: null, und: undefined })
+ */
+export function strf<F extends Record<string, Primitive>>(
+  str: string,
+  fields: F,
+  transFn: (fieldName: keyof F, fieldValue: F[keyof F]) => string = (n, v) => String(v).toString()
+) {
+  if (!Object.keys(fields).length) {
+    return str
+  }
+  const fieldNamesPattern = Object.keys(fields)
+    .map((k) => escapeRegExpChars(k))
+    .join('|')
+  return str.replace(new RegExp(`\\{(${fieldNamesPattern})\\}`, 'g'), (substring) => {
+    // 先頭と末尾の波括弧を除いたものをフィールド名とする
+    const fieldName = substring.slice(1).slice(0, -1)
+    if (Object.hasOwn(fields, fieldName)) {
+      return transFn(fieldName, fields[fieldName] as F[keyof F])
+    }
+    // 埋め込むフィールドがない場合はそのままとする
+    return substring
+  })
+}
+
+/**
+ * 引数の値からclass属性の値を構築して返却
+ *
+ * オプションにより、構築時に処理を加えることが可能
+ * - trimPeriod: 先頭のピリオドを削除
+ *
+ * @param value
+ * @param options
+ * @returns {string}
+ * @see {@link https://www.npmjs.com/package/clsx} inspired by clsx
+ * @example
+ * // 返値: button button--lg
+ * cls('button button--lg')
+ *
+ * // 返値: button button--lg
+ * cls(['button', 'button--lg'])
+ *
+ * // 返値: button
+ * cls('.button', { trimPeriod: true })
+ *
+ * // 返値: button is-open
+ * const isOpen = true
+ * cls(['button', isOpen && 'is-open', !isOpen && 'is-close'])
+ *
+ * // 返値: button isOpen is-open
+ * const isOpen = true
+ * cls(['button', { isOpen, 'is-open': isOpen, 'is-close': !isOpen }])
+ *
+ * // 返値: hello
+ * cls({ hello: true, world: false })
+ */
+export function cls(
+  value:
+    | undefined
+    | null
+    | string
+    | number
+    | boolean
+    | Record<string, boolean | null | undefined>
+    | Array<undefined | null | string | number | boolean | Record<string, boolean | null | undefined>>,
+  options?: ClsOptions
+): string {
+  // null,undefined,真偽値はclassの値として出力しない
+  if (isNullish(value) || isBoolean(value)) return ''
+  if (isString(value) || isNumber(value)) return options?.trimPeriod ? String(value).replace(/\.+/g, '') : String(value)
+  let res = ''
+  if (Array.isArray(value)) {
+    value.forEach((n) => {
+      const childRes = cls(n, options)
+      if (childRes) res += (res && ' ') + childRes
+    })
+  } else {
+    for (const key in value) {
+      if (value[key]) res += (res && ' ') + key
+    }
+  }
+  return options?.trimPeriod ? res.replace(/\.+/g, '') : res
 }

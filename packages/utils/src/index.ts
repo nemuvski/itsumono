@@ -11,6 +11,7 @@ export type {
   RemoveControlCharsOptions,
   NewLineCodeIdentifier,
   IntervalSymbolIdentifier,
+  ClsOptions,
 } from './types/misc'
 
 export * from './array'

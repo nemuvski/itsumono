@@ -19,8 +19,10 @@ custom_edit_url: null
 ```ts
 // 返値: true
 isPositiveInteger(100)
+
 // 返値: false
 isPositiveInteger(0)
+
 // 返値: true
 isPositiveInteger(0, true)
 ```

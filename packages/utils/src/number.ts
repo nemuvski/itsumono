@@ -13,8 +13,10 @@ import type { IntervalSymbolIdentifier } from './types/misc'
  * @example
  * // 返値: true
  * isPositiveInteger(100)
+ *
  * // 返値: false
  * isPositiveInteger(0)
+ *
  * // 返値: true
  * isPositiveInteger(0, true)
  */
@@ -32,6 +34,7 @@ export function isPositiveInteger(value: number | string, includeZero = false, s
  * @example
  * // 返値: true
  * isFiniteNumber(10)
+ *
  * // 返値: false
  * isFiniteNumber(NaN)
  */
@@ -50,10 +53,13 @@ export function isFiniteNumber(value: number) {
  * @example
  * // 返値: true
  * isNumberInRange(3, 3, 5)
+ *
  * // 返値: false
  * isNumberInRange(3, 3, 5, '(]')
+ *
  * // 返値: true
  * isNumberInRange(3, 3, 5, '[)')
+ *
  * // 返値: false
  * isNumberInRange(5, 3, 5, '()')
  */

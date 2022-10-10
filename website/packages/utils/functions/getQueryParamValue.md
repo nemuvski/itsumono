@@ -15,14 +15,19 @@ custom_edit_url: null
 ```ts
 // 返値: 32
 getQueryParamValue('https://localhost:8080?test=32', 'test')
+
 // 返値: （※空文字）
 getQueryParamValue('https://localhost:8080?test=', 'test')
+
 // 返値: null
 getQueryParamValue('https://localhost:8080', 'test')
+
 // 返値: 32
 getQueryParamValue(new URL('https://localhost:8080?test=32'), 'test')
+
 // 返値: （※空文字）
 getQueryParamValue(new URL('https://localhost:8080?test='), 'test')
+
 // 返値: null
 getQueryParamValue(new URL('https://localhost:8080'), 'test')
 ```

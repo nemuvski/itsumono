@@ -18,6 +18,7 @@ numSpacesが1以上の整数値でない場合はエラー
 ```ts
 // 返値: te  st
 replaceTabWithSpaces('te\tst', 2)
+
 // 返値: te st
 replaceTabWithSpaces('te\tst', 1)
 ```

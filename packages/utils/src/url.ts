@@ -8,10 +8,13 @@ import { isNotNullish, isString } from './assertion'
  * @example
  * // 返値: path/to/test
  * buildPath('path/to/', null, undefined, 'test')
+ *
  * // 返値: path/to/test
  * buildPath('/', 'path/to/', null, undefined, 'test')
+ *
  * // 返値: /blog/120
  * buildPath('/blog', 120)
+ *
  * // 返値: /blog/120
  * buildPath('  /blog/  ', 120, '/')
  */
@@ -51,8 +54,10 @@ export function buildPath(...paths: Array<string | number | null | undefined>) {
  * @example
  * // 返値: /path/to/ok
  * withTrailingSlash('/path/to/ok')
+ *
  * // 返値: /path/to/ok
  * withTrailingSlash('/path/to/ok/')
+ *
  * // 返値: http://localhost:8000/sample
  * withTrailingSlash('http://localhost:8000/sample/')
  */
@@ -68,8 +73,10 @@ export function removeTrailingSlash(path: string) {
  * @example
  * // 返値: /path/to/ok/
  * withTrailingSlash('/path/to/ok')
+ *
  * // 返値: /path/to/ok/
  * withTrailingSlash('/path/to/ok/')
+ *
  * // 返値: http://localhost:8000/sample/
  * withTrailingSlash('http://localhost:8000/sample')
  */
@@ -85,6 +92,7 @@ export function withTrailingSlash(path: string) {
  * @example
  * // 返値: /path/to/test
  * withRootRelativePath('/path/to/test')
+ *
  * // 返値: /path/to/test
  * withRootRelativePath('path/to/test')
  */
@@ -113,6 +121,7 @@ export function removeHashFragment(url: string) {
  * @example
  * // 返値: hash fragment
  * removeHashFragment('https://localhost:8080?test=32#hash+fragment')
+ *
  * // 返値: テスト
  * removeHashFragment('https://localhost:8080?test=32#%E3%83%86%E3%82%B9%E3%83%88')
  */
@@ -177,14 +186,19 @@ export function containParamInUrl<P extends string>(url: string | URL, paramName
  * @example
  * // 返値: 32
  * getQueryParamValue('https://localhost:8080?test=32', 'test')
+ *
  * // 返値: （※空文字）
  * getQueryParamValue('https://localhost:8080?test=', 'test')
+ *
  * // 返値: null
  * getQueryParamValue('https://localhost:8080', 'test')
+ *
  * // 返値: 32
  * getQueryParamValue(new URL('https://localhost:8080?test=32'), 'test')
+ *
  * // 返値: （※空文字）
  * getQueryParamValue(new URL('https://localhost:8080?test='), 'test')
+ *
  * // 返値: null
  * getQueryParamValue(new URL('https://localhost:8080'), 'test')
  */

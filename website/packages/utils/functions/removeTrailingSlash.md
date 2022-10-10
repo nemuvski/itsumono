@@ -14,8 +14,10 @@ custom_edit_url: null
 ```ts
 // 返値: /path/to/ok
 withTrailingSlash('/path/to/ok')
+
 // 返値: /path/to/ok
 withTrailingSlash('/path/to/ok/')
+
 // 返値: http://localhost:8000/sample
 withTrailingSlash('http://localhost:8000/sample/')
 ```

@@ -31,3 +31,11 @@ export type NewLineCodeIdentifier = 'LF' | 'CR' | 'CRLF'
  * isNumberInRange()の引数intervalの型
  */
 export type IntervalSymbolIdentifier = '[]' | '(]' | '[)' | '()'
+
+/**
+ * cls()の引数optionsの型
+ */
+export type ClsOptions = {
+  // ピリオドを削除する場合はTrue
+  trimPeriod?: boolean
+}

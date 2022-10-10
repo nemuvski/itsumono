@@ -14,10 +14,13 @@ custom_edit_url: null
 ```ts
 // 返値: path/to/test
 buildPath('path/to/', null, undefined, 'test')
+
 // 返値: path/to/test
 buildPath('/', 'path/to/', null, undefined, 'test')
+
 // 返値: /blog/120
 buildPath('/blog', 120)
+
 // 返値: /blog/120
 buildPath('  /blog/  ', 120, '/')
 ```
