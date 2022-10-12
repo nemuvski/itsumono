@@ -10,6 +10,10 @@ custom_edit_url: null
 引数urlで指定したパラメータの値を返却
 ※ パラメータが存在しない場合はnull
 
+**`Deprecated`**
+
+将来的にこの関数は削除されます。[`getQueryParamsValue()`](getQueryParamsValue.md)を使用してください。
+
 **`Example`**
 
 ```ts
