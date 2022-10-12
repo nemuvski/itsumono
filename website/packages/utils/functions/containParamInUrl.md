@@ -34,10 +34,10 @@ containParamInUrl(new URL('https://localhost:8080?test1=32'), 'test')
 
 ## Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` \| `URL` |
-| `paramName` | `P` |
+| Name        | Type      |
+|:------------|:----------|
+| `url`       | `string` \| `URL` \| `URLSearchParams` |
+| `paramName` | `P`       |
 
 ## Returns
 

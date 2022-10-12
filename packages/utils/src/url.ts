@@ -187,11 +187,11 @@ export function getQueryString(url: string) {
  * // 返値: false
  * containParamInUrl(new URL('https://localhost:8080?test1=32'), 'test')
  */
-export function containParamInUrl<P extends string>(url: string | URL, paramName: P) {
+export function containParamInUrl<P extends string>(url: string | URL | URLSearchParams, paramName: P) {
   if (isString(url)) {
     return new RegExp('(\\?|&)' + escapeRegExpChars(paramName) + '=', 'g').test(getQueryString(url))
   }
-  return url.searchParams.has(paramName)
+  return isURL(url) ? url.searchParams.has(paramName) : url.has(paramName)
 }
 
 /**
