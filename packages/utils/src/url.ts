@@ -164,7 +164,7 @@ export function getQueryString(url: string) {
   const trimmed = removeHashFragment(url)
   const sepIdx = trimmed.indexOf('?')
   // デコード&「+」をスペースに置換する
-  return sepIdx > 0 ? decodeURIComponent(trimmed.substring(sepIdx, trimmed.length).replace(/\+/g, ' ')) : ''
+  return sepIdx >= 0 ? decodeURIComponent(trimmed.substring(sepIdx, trimmed.length).replace(/\+/g, ' ')) : ''
 }
 
 /**
