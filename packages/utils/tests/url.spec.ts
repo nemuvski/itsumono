@@ -8,6 +8,7 @@ import {
   withTrailingSlash,
   removeTrailingSlash,
   withRootRelativePath,
+  getQueryParamsValue,
 } from '../src/url'
 
 describe('url.ts', () => {
@@ -79,5 +80,12 @@ describe('url.ts', () => {
     )
     expect(getQueryParamValue(new URL('https://localhost:8080?test='), 'test')).toBe('')
     expect(getQueryParamValue(new URL('https://localhost:8080'), 'test')).toBe(null)
+  })
+
+  test('getQueryParamsValue()', () => {
+    // expect(getQueryParamsValue())
+    const p = getQueryParamsValue<'test' | 'daas'>('https://localhost:8080?test1=3+2&test2=%E3%82%A2#fragment', [
+      'test',
+    ])
   })
 })

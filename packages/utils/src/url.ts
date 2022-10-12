@@ -1,4 +1,4 @@
-import { isNotNullish, isString } from './assertion'
+import { isNotNullish, isString, isURL } from './assertion'
 import { escapeRegExpChars } from './string'
 
 /**
@@ -188,6 +188,7 @@ export function containParamInUrl<P extends string>(url: string | URL, paramName
  * 引数urlで指定したパラメータの値を返却
  * ※ パラメータが存在しない場合はnull
  *
+ * @deprecated getQueryParamsValue() を使用してください
  * @param url
  * @param paramName
  * @returns {string|null}
@@ -224,4 +225,35 @@ export function getQueryParamValue<P extends string>(url: string | URL, paramNam
     return null
   }
   return url.searchParams.get(paramName)
+}
+
+/**
+ * 引数urlから指定したパラメータの値を返却
+ *
+ * @param url
+ * @param paramNames
+ * @returns {{[key:string]:Array<string>}}
+ * @example
+ */
+export function getQueryParamsValue<P extends string>(
+  url: string | URL | URLSearchParams,
+  paramNames: Array<P>
+): Record<P, Array<string>> {
+  const res: Record<string, Array<string>> = {}
+  paramNames.forEach((f) => {
+    res[f] = []
+  })
+
+  if (isString(url)) {
+    const queryStr = getQueryString(url)
+
+    console.log(queryStr)
+  } else {
+    const searchParams = isURL(url) ? url.searchParams : url
+    paramNames.forEach((param) => {
+      res[param] = searchParams.getAll(param)
+    })
+  }
+
+  return res
 }
