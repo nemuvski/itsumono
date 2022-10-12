@@ -1,4 +1,4 @@
-import { isNotNullish, isString } from './assertion'
+import { isNotNullish, isString, isURL } from './assertion'
 import { escapeRegExpChars } from './string'
 
 /**
@@ -154,16 +154,17 @@ export function getHashFragment(url: string | URL) {
  * // 返値: ?test1=32&test2=ア
  * getQueryString('https://localhost:8080?test1=32&test2=%E3%82%A2#fragment')
  *
+ * // 返値: ?test1=32&test2=ア
+ * getQueryString('/path/to/?test1=32&test2=%E3%82%A2#fragment')
+ *
  * // 返値: ?test1=3 2&test2=ア
  * getQueryString('https://localhost:8080?test1=3+2&test2=%E3%82%A2#fragment')
  */
 export function getQueryString(url: string) {
-  const result = /\?[\w=&%$\-.+!*'(),]+/.exec(removeHashFragment(url))
-  if (!result) {
-    return ''
-  }
+  const trimmed = removeHashFragment(url)
+  const sepIdx = trimmed.indexOf('?')
   // デコード&「+」をスペースに置換する
-  return decodeURIComponent(result[0].replace(/\+/g, ' '))
+  return sepIdx >= 0 ? decodeURIComponent(trimmed.substring(sepIdx, trimmed.length).replace(/\+/g, ' ')) : ''
 }
 
 /**
@@ -174,20 +175,30 @@ export function getQueryString(url: string) {
  * @param paramName
  * @returns {boolean}
  * @example
+ * // 返値: true
  * containParamInUrl('https://localhost:8080?test=32', 'test')
+ *
+ * // 返値: false
+ * containParamInUrl('https://localhost:8080?test1=32', 'test')
+ *
+ * // 返値: true
  * containParamInUrl(new URL('https://localhost:8080?test=32'), 'test')
+ *
+ * // 返値: false
+ * containParamInUrl(new URL('https://localhost:8080?test1=32'), 'test')
  */
-export function containParamInUrl<P extends string>(url: string | URL, paramName: P) {
+export function containParamInUrl<P extends string>(url: string | URL | URLSearchParams, paramName: P) {
   if (isString(url)) {
     return new RegExp('(\\?|&)' + escapeRegExpChars(paramName) + '=', 'g').test(getQueryString(url))
   }
-  return url.searchParams.has(paramName)
+  return isURL(url) ? url.searchParams.has(paramName) : url.has(paramName)
 }
 
 /**
  * 引数urlで指定したパラメータの値を返却
  * ※ パラメータが存在しない場合はnull
  *
+ * @deprecated 将来的にこの関数は削除されます。getQueryParamsValue()を使用してください。
  * @param url
  * @param paramName
  * @returns {string|null}
@@ -224,4 +235,58 @@ export function getQueryParamValue<P extends string>(url: string | URL, paramNam
     return null
   }
   return url.searchParams.get(paramName)
+}
+
+/**
+ * 引数urlから指定したパラメータをキーとした配列を値に持つオブジェクトを返却
+ *
+ * @param url
+ * @param paramNames
+ * @returns {{[key:string]:Array<string>}}
+ * @example
+ * // 返値: { test1: ['3 2', '56'], test2: ['ア'], test3: [] }
+ * getQueryParamsValue('https://localhost:8080?test1=3+2&test2=%E3%82%A2&test1=56#fragment', [
+ *   'test1',
+ *   'test2',
+ *   'test3', // クエリストリング中にないパラメータを指定した場合は空配列 (返値を参照)
+ * ])
+ *
+ * // 返値: { test1: ['3 2', '56'], test2: ['ア'], test3: [] }
+ * getQueryParamsValue(new URL('https://localhost:8080?test1=3+2&test2=%E3%82%A2&test1=56#fragment'), [
+ *   'test1',
+ *   'test2',
+ *   'test3',
+ * ])
+ */
+export function getQueryParamsValue<P extends string>(
+  url: string | URL | URLSearchParams,
+  paramNames: Array<P>
+): Record<P, Array<string>> {
+  const res: Record<string, Array<string>> = {}
+  if (!paramNames.length) {
+    return res
+  }
+
+  paramNames.forEach((f) => {
+    res[f] = []
+  })
+
+  if (isString(url)) {
+    const queryStr = getQueryString(url)
+    const paramNamesPattern = paramNames.map((k) => escapeRegExpChars(k)).join('|')
+    const matches = queryStr.matchAll(new RegExp('(\\?|&)(' + paramNamesPattern + ')=([^&]*)', 'g'))
+    for (const m of matches) {
+      // NOTE: 添字2はパラメータ名グループ, 添字3はパラメータの値グループ
+      if (m[2] !== undefined && m[3] !== undefined) {
+        res[m[2]].push(m[3])
+      }
+    }
+  } else {
+    const searchParams = isURL(url) ? url.searchParams : url
+    paramNames.forEach((param) => {
+      res[param] = searchParams.getAll(param)
+    })
+  }
+
+  return res
 }

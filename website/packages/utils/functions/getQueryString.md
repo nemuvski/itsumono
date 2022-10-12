@@ -17,6 +17,9 @@ custom_edit_url: null
 // 返値: ?test1=32&test2=ア
 getQueryString('https://localhost:8080?test1=32&test2=%E3%82%A2#fragment')
 
+// 返値: ?test1=32&test2=ア
+getQueryString('/path/to/?test1=32&test2=%E3%82%A2#fragment')
+
 // 返値: ?test1=3 2&test2=ア
 getQueryString('https://localhost:8080?test1=3+2&test2=%E3%82%A2#fragment')
 ```
