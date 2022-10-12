@@ -13,8 +13,17 @@ custom_edit_url: null
 **`Example`**
 
 ```ts
+// 返値: true
 containParamInUrl('https://localhost:8080?test=32', 'test')
+
+// 返値: false
+containParamInUrl('https://localhost:8080?test1=32', 'test')
+
+// 返値: true
 containParamInUrl(new URL('https://localhost:8080?test=32'), 'test')
+
+// 返値: false
+containParamInUrl(new URL('https://localhost:8080?test1=32'), 'test')
 ```
 
 ## Type
