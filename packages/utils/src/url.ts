@@ -154,16 +154,17 @@ export function getHashFragment(url: string | URL) {
  * // 返値: ?test1=32&test2=ア
  * getQueryString('https://localhost:8080?test1=32&test2=%E3%82%A2#fragment')
  *
+ * // 返値: ?test1=32&test2=ア
+ * getQueryString('/path/to/?test1=32&test2=%E3%82%A2#fragment')
+ *
  * // 返値: ?test1=3 2&test2=ア
  * getQueryString('https://localhost:8080?test1=3+2&test2=%E3%82%A2#fragment')
  */
 export function getQueryString(url: string) {
-  const result = /\?[\w=&%$\-.+!*'(),]+/.exec(removeHashFragment(url))
-  if (!result) {
-    return ''
-  }
+  const trimmed = removeHashFragment(url)
+  const sepIdx = trimmed.indexOf('?')
   // デコード&「+」をスペースに置換する
-  return decodeURIComponent(result[0].replace(/\+/g, ' '))
+  return sepIdx > 0 ? decodeURIComponent(trimmed.substring(sepIdx, trimmed.length).replace(/\+/g, ' ')) : ''
 }
 
 /**
@@ -174,8 +175,14 @@ export function getQueryString(url: string) {
  * @param paramName
  * @returns {boolean}
  * @example
+ * // 返値: true
  * containParamInUrl('https://localhost:8080?test=32', 'test')
+ *
+ * // 返値: true
  * containParamInUrl(new URL('https://localhost:8080?test=32'), 'test')
+ *
+ * // 返値: false
+ * containParamInUrl(new URL('https://localhost:8080?test1=32'), 'test')
  */
 export function containParamInUrl<P extends string>(url: string | URL, paramName: P) {
   if (isString(url)) {

@@ -54,17 +54,32 @@ describe('url.ts', () => {
 
   test('getQueryString()', () => {
     expect(getQueryString('https://localhost:8080?test1=3+2&test2=%E3%82%A2#fragment')).toBe('?test1=3 2&test2=ア')
+    expect(getQueryString('/path/to/?test1=3+2&test2=%E3%82%A2#fragment')).toBe('?test1=3 2&test2=ア')
+    expect(getQueryString('https://localhost:8080?#test1=3+2&test2=%E3%82%A2')).toBe('?')
+    expect(getQueryString('https://localhost:8080#?test1=3+2&test2=%E3%82%A2')).toBe('')
     expect(getQueryString('https://localhost:8080/#?test1=32&test2=%E3%82%A2')).toBe('')
   })
 
   test('containParamInUrl()', () => {
     expect(containParamInUrl('https://localhost:8080', 'test')).toBe(false)
     expect(containParamInUrl('https://localhost:8080/?test1=32', 'test')).toBe(false)
+    expect(containParamInUrl('https://localhost:8080/?_test=32', '_test')).toBe(true)
     expect(containParamInUrl('https://localhost:8080/?test()=32', 'test()')).toBe(true)
-    expect(containParamInUrl('https://localhost:8080/#?test=32', 'test')).toBe(false)
-    expect(containParamInUrl('https://localhost:8080?test1=32&test=', 'test')).toBe(true)
+    expect(containParamInUrl('https://localhost:8080/?test[]=32', 'test[]')).toBe(true)
+    expect(containParamInUrl('https://localhost:8080/?test{}=32', 'test{}')).toBe(true)
+    expect(containParamInUrl('https://localhost:8080/?@!test=32', '@!test')).toBe(true)
+    expect(containParamInUrl('https://localhost:8080/?te.st=32', 'te.st')).toBe(true)
+    expect(containParamInUrl('https://localhost:8080?test1=32&test2=', 'test')).toBe(false)
+    expect(containParamInUrl('https://localhost:8080?#test=', 'test')).toBe(false)
     expect(containParamInUrl(new URL('https://localhost:8080?test=32'), 'test')).toBe(true)
     expect(containParamInUrl(new URL('https://localhost:8080?_test='), '_test')).toBe(true)
+    expect(containParamInUrl(new URL('https://localhost:8080?test()='), 'test()')).toBe(true)
+    expect(containParamInUrl(new URL('https://localhost:8080?test[]='), 'test[]')).toBe(true)
+    expect(containParamInUrl(new URL('https://localhost:8080?test{}='), 'test{}')).toBe(true)
+    expect(containParamInUrl(new URL('https://localhost:8080?@!test='), '@!test')).toBe(true)
+    expect(containParamInUrl(new URL('https://localhost:8080?te.st='), 'te.st')).toBe(true)
+    expect(containParamInUrl(new URL('https://localhost:8080#?test='), 'test')).toBe(false)
+    expect(containParamInUrl(new URL('https://localhost:8080?#test='), 'test')).toBe(false)
   })
 
   test('getQueryParamValue()', () => {
