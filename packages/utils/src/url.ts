@@ -1,4 +1,5 @@
 import { isNotNullish, isString } from './assertion'
+import { escapeRegExpChars } from './string'
 
 /**
  * パスを結合して返却
@@ -171,7 +172,7 @@ export function getQueryString(url: string) {
  */
 export function containParamInUrl<P extends string>(url: string | URL, paramName: P) {
   if (isString(url)) {
-    return new RegExp('(\\?|&)' + paramName + '=', 'g').test(getQueryString(url))
+    return new RegExp('(\\?|&)' + escapeRegExpChars(paramName) + '=', 'g').test(getQueryString(url))
   }
   return url.searchParams.has(paramName)
 }
@@ -204,7 +205,7 @@ export function containParamInUrl<P extends string>(url: string | URL, paramName
  */
 export function getQueryParamValue<P extends string>(url: string | URL, paramName: P) {
   if (isString(url)) {
-    const result = new RegExp('(\\?|&)' + paramName + '=([^&]*)').exec(getQueryString(url))
+    const result = new RegExp('(\\?|&)' + escapeRegExpChars(paramName) + '=([^&]*)').exec(getQueryString(url))
     if (!result) {
       return null
     }
