@@ -1,11 +1,5 @@
-export type { Primitive, Falsy, Nullish } from './types/aliases'
-export type {
-  MatchTypeKeys,
-  ExactMatchTypeKeys,
-  NotMatchTypeKeys,
-  ExactNotMatchTypeKeys,
-  RequiredAtLeastOne,
-} from './types/utils'
+export * from './types/aliases'
+export * from './types/utils'
 
 export * from './functions/buildPath'
 export * from './functions/cls'
