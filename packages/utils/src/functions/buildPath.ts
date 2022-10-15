@@ -1,5 +1,5 @@
-import {isNotNullish} from "./isNotNullish";
-import {isString} from "./isString";
+import { isNotNullish } from './isNotNullish'
+import { isString } from './isString'
 
 /**
  * パスを結合して返却
