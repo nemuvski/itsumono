@@ -16,11 +16,7 @@
     "skipLibCheck": true,
     "removeComments": false,
     "isolatedModules": false,
-    "baseUrl": ".",
-    "paths": {
-      "@itsumono/react": ["packages/react/src"],
-      "@itsumono/utils": ["packages/utils/src"]
-    }
+    "baseUrl": "."
   },
   "exclude": ["examples", "website"]
 }
