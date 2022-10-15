@@ -5,7 +5,7 @@ import {
   NotMatchTypeKeys,
   ExactNotMatchTypeKeys,
   RequiredAtLeastOne,
-} from '../../src/types/utils'
+} from '../../src'
 
 describe('types/utils.ts', () => {
   const date = new Date('August 19, 1975 23:15:30')
