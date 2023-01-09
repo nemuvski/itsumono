@@ -9,10 +9,10 @@ import { isString } from './isString'
  * @returns {string}
  * @example
  * // 返値: hash fragment
- * removeHashFragment('https://localhost:8080?test=32#hash+fragment')
+ * getHashFragment('https://localhost:8080?test=32#hash+fragment')
  *
  * // 返値: テスト
- * removeHashFragment('https://localhost:8080?test=32#%E3%83%86%E3%82%B9%E3%83%88')
+ * getHashFragment('https://localhost:8080?test=32#%E3%83%86%E3%82%B9%E3%83%88')
  */
 export function getHashFragment(url: string | URL) {
   let hash = ''
