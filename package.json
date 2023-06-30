@@ -2,10 +2,10 @@
   "name": "itsumono",
   "author": "K.Utsunomiya",
   "private": true,
-  "packageManager": "pnpm@7.27.1",
+  "packageManager": "pnpm@8.6.5",
   "engines": {
-    "node": ">=18.14.1 <19",
-    "pnpm": ">=7.27"
+    "node": ">=18.16.1 <19",
+    "pnpm": ">=8.6"
   },
   "workspaces": [
     "packages/*",
