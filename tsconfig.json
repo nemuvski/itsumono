@@ -18,5 +18,5 @@
     "isolatedModules": false,
     "baseUrl": "."
   },
-  "exclude": ["examples", "website"]
+  "exclude": ["website"]
 }
