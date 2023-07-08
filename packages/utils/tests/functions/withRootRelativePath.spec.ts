@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { withRootRelativePath } from '../../src'
 
 test('withRootRelativePath()', () => {

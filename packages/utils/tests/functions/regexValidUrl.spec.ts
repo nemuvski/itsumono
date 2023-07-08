@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { regexpValidUrlFormat } from '../../src'
 
 test('regexValidUrl()', () => {

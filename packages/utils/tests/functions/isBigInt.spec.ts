@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isBigInt } from '../../src'
 
 test('isBigInt()', () => {
@@ -5,6 +6,7 @@ test('isBigInt()', () => {
   expect(isBigInt(Infinity)).toBe(false)
   expect(isBigInt(NaN)).toBe(false)
   expect(isBigInt('a')).toBe(false)
+  // @ts-ignore: 0n
   expect(isBigInt(0n)).toBe(true)
   expect(isBigInt(BigInt(32))).toBe(true)
 })

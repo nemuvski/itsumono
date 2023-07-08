@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isBoolean } from '../../src'
 
 test('isBoolean()', () => {

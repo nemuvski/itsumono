@@ -1,5 +1,7 @@
+.coverage/
 .turbo/
 src/
 tests/
 .eslintrc.js
 tsconfig.json
+vitest.config.ts

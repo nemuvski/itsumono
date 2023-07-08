@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isNumberInRange } from '../../src'
 
 test('isNumberInRange()', () => {

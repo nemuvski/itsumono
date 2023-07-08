@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { containParamInUrl } from '../../src'
 
 test('containParamInUrl()', () => {

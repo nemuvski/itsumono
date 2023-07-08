@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isInvalidDate } from '../../src'
 
 test('isInvalidDate()', () => {

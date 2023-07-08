@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { replaceHwAlphanumericsWithFw } from '../../src'
 
 test('replaceHwAlphanumericsWithFw()', () => {

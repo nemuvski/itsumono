@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { replaceTabWithSpaces } from '../../src'
 
 test('replaceTabWithSpaces()', () => {

@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { escapeRegExpChars } from '../../src'
 
 test('escapeRegExpChars()', () => {
