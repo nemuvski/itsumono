@@ -27,8 +27,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/ --format=esm,cjs --dts",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "typecheck": "tsc --noEmit",
+    "build": "tsup src/ --format=esm,cjs --dts"
   },
   "tsup": {
     "entry": ["src/index.ts"],

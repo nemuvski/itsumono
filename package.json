@@ -13,8 +13,7 @@
     "local/*"
   ],
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint": "turbo run lint",
     "format": "prettier --check './**/*.{js,jsx,ts,tsx}'",
     "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
     "typecheck": "turbo run typecheck",
@@ -24,6 +23,7 @@
     "docs": "npm run build -w website"
   },
   "devDependencies": {
+    "@local/eslint-config-custom": "workspace:*",
     "@local/tsconfig": "workspace:*",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",

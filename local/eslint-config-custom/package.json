@@ -1,0 +1,5 @@
+{
+  "name": "@local/eslint-config-custom",
+  "private": true,
+  "main": "index.js"
+}
