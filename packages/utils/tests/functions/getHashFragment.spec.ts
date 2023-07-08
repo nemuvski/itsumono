@@ -2,6 +2,8 @@ import { test, expect } from 'vitest'
 import { getHashFragment } from '../../src'
 
 test('getHashFragment()', () => {
+  expect(getHashFragment('https://localhost:8080?test=32')).toBe('')
+  expect(getHashFragment(new URL('https://localhost:8080?test=32#hash-fragment'))).toBe('hash-fragment')
   expect(getHashFragment('https://localhost:8080?test=32#hash-fragment')).toBe('hash-fragment')
   expect(getHashFragment('https://localhost:8080?test=32#hash_fragment')).toBe('hash_fragment')
   expect(getHashFragment('https://localhost:8080?test=32#hash+fragment')).toBe('hash fragment')

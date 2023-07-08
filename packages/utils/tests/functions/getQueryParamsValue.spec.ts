@@ -2,6 +2,7 @@ import { test, expect } from 'vitest'
 import { getQueryParamsValue } from '../../src'
 
 test('getQueryParamsValue()', () => {
+  expect(getQueryParamsValue('https://localhost:8080?test1=3+2&test2=%E3%82%A2&test1=56#fragment', [])).toEqual({})
   expect(
     getQueryParamsValue('https://localhost:8080?test1=3+2&test2=%E3%82%A2&test1=56#fragment', [
       'test1',

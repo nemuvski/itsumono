@@ -2,6 +2,18 @@ import { describe, test, expect } from 'vitest'
 import { diffArray } from '../../src'
 
 describe('diffArray()', () => {
+  test('diffArray() - left empty', () => {
+    const { leftOnlyItems, rightOnlyItems, bothItems } = diffArray([], ['1', '2', 3, 4, 5])
+    expect(leftOnlyItems).toStrictEqual([])
+    expect(rightOnlyItems).toStrictEqual(['1', '2', 3, 4, 5])
+    expect(bothItems).toStrictEqual([])
+  })
+  test('diffArray() - right empty', () => {
+    const { leftOnlyItems, rightOnlyItems, bothItems } = diffArray(['1', '2', 3, 4, 5], [])
+    expect(leftOnlyItems).toStrictEqual(['1', '2', 3, 4, 5])
+    expect(rightOnlyItems).toStrictEqual([])
+    expect(bothItems).toStrictEqual([])
+  })
   test('diffArray() - Pattern1', () => {
     const { leftOnlyItems, rightOnlyItems, bothItems } = diffArray([1, 2, 3, '4', '5'], ['1', '2', 3, 4, 5])
     expect(leftOnlyItems).toStrictEqual([1, 2, '4', '5'])
