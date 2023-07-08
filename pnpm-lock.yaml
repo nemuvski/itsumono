@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@local/tsconfig':
+        specifier: workspace:*
+        version: link:local/tsconfig
       '@testing-library/jest-dom':
         specifier: ^5.16.5
         version: 5.16.5
@@ -80,6 +83,8 @@ importers:
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
+
+  local/tsconfig: {}
 
   packages/react:
     devDependencies:
