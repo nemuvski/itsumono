@@ -8,6 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@local/eslint-config-custom':
+        specifier: workspace:*
+        version: link:local/eslint-config-custom
+      '@local/tsconfig':
+        specifier: workspace:*
+        version: link:local/tsconfig
       '@testing-library/jest-dom':
         specifier: ^5.16.5
         version: 5.16.5
@@ -80,6 +86,10 @@ importers:
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
+
+  local/eslint-config-custom: {}
+
+  local/tsconfig: {}
 
   packages/react:
     devDependencies:

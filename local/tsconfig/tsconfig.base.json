@@ -17,6 +17,5 @@
     "removeComments": false,
     "isolatedModules": false,
     "baseUrl": "."
-  },
-  "exclude": ["website"]
+  }
 }

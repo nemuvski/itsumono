@@ -9,20 +9,22 @@
   },
   "workspaces": [
     "packages/*",
-    "website"
+    "website",
+    "local/*"
   ],
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint": "turbo run lint",
     "format": "prettier --check './**/*.{js,jsx,ts,tsx}'",
     "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "turbo run typecheck",
     "test": "jest",
     "prebuild": "npm run typecheck && npm run lint && npm run format",
     "build": "turbo run build --filter=./packages/*",
     "docs": "npm run build -w website"
   },
   "devDependencies": {
+    "@local/eslint-config-custom": "workspace:*",
+    "@local/tsconfig": "workspace:*",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.2",
