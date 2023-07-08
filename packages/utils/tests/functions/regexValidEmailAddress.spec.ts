@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { regexpValidEmailAddressFormat } from '../../src'
 
 test('regexValidEmailAddress()', () => {

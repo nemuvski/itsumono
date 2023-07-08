@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { regexpNoSpaceChars } from '../../src'
 
 test('regexNoSpaceChars()', () => {

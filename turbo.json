@@ -5,10 +5,13 @@
       "outputs": ["dist/**"]
     },
     "lint": {
-      "outputs": []
+      "cache": false
     },
     "typecheck": {
-      "outputs": []
+      "cache": false
+    },
+    "test": {
+      "cache": false
     },
     "dev": {
       "cache": false

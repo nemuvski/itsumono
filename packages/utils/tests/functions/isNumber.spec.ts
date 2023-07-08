@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isNumber } from '../../src'
 
 test('isNumber()', () => {

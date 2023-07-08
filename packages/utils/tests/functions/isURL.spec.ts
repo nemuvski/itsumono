@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isURL } from '../../src'
 
 test('isURL()', () => {

@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { removeHashFragment } from '../../src'
 
 test('removeHashFragment()', () => {

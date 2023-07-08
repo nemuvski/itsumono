@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { removeZWChars } from '../../src'
 
 test('removeZWChars()', () => {

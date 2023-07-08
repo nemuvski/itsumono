@@ -1,4 +1,4 @@
-import { expectTypeOf } from 'expect-type'
+import { expectTypeOf, describe, test } from 'vitest'
 import {
   MatchTypeKeys,
   ExactMatchTypeKeys,

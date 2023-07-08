@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { withTrailingSlash } from '../../src'
 
 test('withTrailingSlash()', () => {

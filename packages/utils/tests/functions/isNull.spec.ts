@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isNull } from '../../src'
 
 test('isNull()', () => {

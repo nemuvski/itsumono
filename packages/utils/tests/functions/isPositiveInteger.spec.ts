@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { isPositiveInteger } from '../../src'
 
 test('isPositiveInteger()', () => {
