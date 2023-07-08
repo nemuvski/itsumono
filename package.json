@@ -18,7 +18,6 @@
     "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
-    "prebuild": "npm run typecheck && npm run lint && npm run format",
     "build": "turbo run build --filter=./packages/*",
     "docs": "npm run build -w website"
   },
