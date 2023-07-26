@@ -74,7 +74,10 @@ jobs:
       - name: building
         run: npm run build -w @itsumono/utils
       - name: publish
-        run: pnpm publish --filter=@itsumono/utils
+        # --no-git-checks is set because of the following issues:
+        # https://github.com/pnpm/pnpm/issues/5894
+        # https://github.com/pnpm/pnpm/issues/2995
+        run: pnpm publish --no-git-checks --filter=@itsumono/utils
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -142,6 +145,9 @@ jobs:
       - name: building
         run: npm run build -w @itsumono/react
       - name: publish
-        run: pnpm publish --filter=@itsumono/react
+        # --no-git-checks is set because of the following issues:
+        # https://github.com/pnpm/pnpm/issues/5894
+        # https://github.com/pnpm/pnpm/issues/2995
+        run: pnpm publish --no-git-checks --filter=@itsumono/react
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
