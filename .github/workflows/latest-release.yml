@@ -24,7 +24,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.node-version'
-          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Current Node.js version
@@ -93,7 +92,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.node-version'
-          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Current Node.js version
