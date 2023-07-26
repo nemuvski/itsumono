@@ -5,7 +5,8 @@
   "description": "ユーティリティ関数や正規表現などを提供する。",
   "license": "MIT",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "homepage": "https://itsumono.netlify.app/",
   "repository": {
