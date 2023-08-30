@@ -116,7 +116,7 @@ const config = {
         copyright: `Copyright © 2022 @itsumono`,
       },
       prism: {
-        theme: require('prism-react-renderer/themes/oceanicNext'),
+        theme: require('prism-react-renderer').themes.oceanicNext,
       },
     },
 }
