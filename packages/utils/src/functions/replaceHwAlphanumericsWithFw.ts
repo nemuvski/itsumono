@@ -17,7 +17,7 @@
  * replaceFwAlphanumericsWithHw('Ａa0')
  */
 export function replaceHwAlphanumericsWithFw(str: string) {
-  return str.replace(/[\da-zA-Z]/g, (substring) => {
+  return str.replace(/[\da-z]/gi, (substring) => {
     // 0xFEE0は0xFF10と0x0030の差分
     return String.fromCharCode(substring.charCodeAt(0) + 0xfee0)
   })
