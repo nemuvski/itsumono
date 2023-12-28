@@ -43,7 +43,7 @@
     "rimraf": "^5.0.1",
     "tsup": "^8.0.1",
     "turbo": "^1.11.2",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "vitest": "^1.1.0"
   }
 }
