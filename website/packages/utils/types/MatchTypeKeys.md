@@ -5,7 +5,7 @@ sidebar_label: "MatchTypeKeys"
 custom_edit_url: null
 ---
 
-**MatchTypeKeys**<`T`, `U`\>: { [K in keyof T]-?: U extends T[K] ? K : never }[keyof `T`]
+**MatchTypeKeys**\<`T`, `U`\>: \{ [K in keyof T]-?: U extends T[K] ? K : never \}[keyof `T`]
 
 Tのプロパティのうち、Uで指定した型を持つプロパティのキーを取り出す
 

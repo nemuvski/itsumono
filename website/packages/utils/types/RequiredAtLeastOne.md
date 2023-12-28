@@ -5,7 +5,7 @@ sidebar_label: "RequiredAtLeastOne"
 custom_edit_url: null
 ---
 
-**RequiredAtLeastOne**<`T`, `K`\>: `Pick`<`T`, `Exclude`<keyof `T`, `K`\>\> & `Partial`<`Pick`<`T`, `K`\>\> & `K` extends keyof `T` ? { [\_K in K]-?: Pick<Required<T\>, \_K\> }[`K`] : `never`
+**RequiredAtLeastOne**\<`T`, `K`\>: `Pick`\<`T`, `Exclude`\<keyof `T`, `K`\>\> & `Partial`\<`Pick`\<`T`, `K`\>\> & `K` extends keyof `T` ? \{ [\_K in K]-?: Pick\<Required\<T\>, \_K\> \}[`K`] : `never`
 
 Tのプロパティのうち、Kで指定したプロパティのうち最低1つは値を持つオブジェクトである型を得る
 

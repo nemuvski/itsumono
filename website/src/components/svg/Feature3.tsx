@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Feature3: React.FC<React.ComponentProps<'svg'>> = (props) => {
   return (
     <svg {...props} xmlns='http://www.w3.org/2000/svg' width='729' height='658' viewBox='0 0 729 658'>

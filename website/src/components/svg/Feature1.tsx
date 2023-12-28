@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Feature1: React.FC<React.ComponentProps<'svg'>> = (props) => {
   return (
     <svg

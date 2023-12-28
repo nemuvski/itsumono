@@ -5,7 +5,7 @@ sidebar_label: "containParamInUrl"
 custom_edit_url: null
 ---
 
-**containParamInUrl**<`P`\>(`url`, `paramName`): `boolean`
+**containParamInUrl**\<`P`\>(`url`, `paramName`): `boolean`
 
 引数urlで指定したパラメータ名が存在する場合はTrueを返却
 ※ パラメータがとる値によらない点に注意

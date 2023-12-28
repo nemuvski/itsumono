@@ -5,7 +5,7 @@ sidebar_label: "diffArray"
 custom_edit_url: null
 ---
 
-**diffArray**<`T`\>(`left`, `right`, `matchFn?`): `Object`
+**diffArray**\<`T`\>(`left`, `right`, `matchFn?`): `Object`
 
 2つの配列でそれぞれにのみ存在する要素、両方に存在する要素を分けたものを返却
 

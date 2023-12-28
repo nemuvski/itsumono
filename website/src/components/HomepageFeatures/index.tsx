@@ -1,4 +1,3 @@
-import React from 'react'
 import clsx from 'clsx'
 import Feature1 from '@site/src/components/svg/Feature1'
 import Feature2 from '@site/src/components/svg/Feature2'

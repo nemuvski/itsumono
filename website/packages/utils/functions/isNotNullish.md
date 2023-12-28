@@ -5,7 +5,7 @@ sidebar_label: "isNotNullish"
 custom_edit_url: null
 ---
 
-**isNotNullish**<`T`\>(`value`): value is NonNullable<T\>
+**isNotNullish**\<`T`\>(`value`): value is NonNullable\<T\>
 
 引数valueがNullish値ではない場合はTrueを返却
 
@@ -32,4 +32,4 @@ if (isNotNullish(value)) {
 
 ## Returns
 
-value is NonNullable<T\>
+value is NonNullable\<T\>

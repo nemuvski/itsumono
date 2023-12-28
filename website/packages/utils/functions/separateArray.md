@@ -5,7 +5,7 @@ sidebar_label: "separateArray"
 custom_edit_url: null
 ---
 
-**separateArray**<`T`, `M`, `N`\>(`arr`, `matchFn`): `Object`
+**separateArray**\<`T`, `M`, `N`\>(`arr`, `matchFn`): `Object`
 
 引数arrのうち、引数matchFnの実行結果についてTrue/Falseで分けたものを返却
 
@@ -55,7 +55,7 @@ const { matches, notMatches } = separateArray(arr, (post) => !post.updatedAt)
 | Name | Type |
 | :------ | :------ |
 | `arr` | `T`[] |
-| `matchFn` | (`v`: `T`) => `boolean` |
+| `matchFn` | (`v`: `T`) =\> `boolean` |
 
 ## Returns
 
