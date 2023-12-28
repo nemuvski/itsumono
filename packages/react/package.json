@@ -50,8 +50,10 @@
     "minify": true,
     "clean": true
   },
-  "typedoc": {
-    "entryPoint": "./src/index.ts",
-    "readmeFile": "./README.md"
+  "typedocOptions": {
+    "entryPoints": [
+      "./src/index.ts"
+    ],
+    "readme": "./README.md"
   }
 }
