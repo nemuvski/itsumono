@@ -6,7 +6,7 @@ custom_edit_url: null
 ---
 
 
-**getQueryParamsValue**<`P`\>(`url`, `paramNames`): `Record`<`P`, `string`[]\>
+**getQueryParamsValue**\<`P`\>(`url`, `paramNames`): `Record`\<`P`, `string`[]\>
 
 引数urlから指定したパラメータをキーとした配列を値に持つオブジェクトを返却
 
@@ -43,4 +43,4 @@ getQueryParamsValue(new URL('https://localhost:8080?test1=3+2&test2=%E3%82%A2&te
 
 #### Returns
 
-`Record`<`P`, `string`[]\>
+`Record`\<`P`, `string`[]\>

@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
 import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
@@ -8,7 +6,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures'
 
 import styles from './index.module.css'
 
-function HomepageHeader() {
+const HomepageHeader: React.FC = () => {
   const { siteConfig } = useDocusaurusContext()
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
@@ -25,7 +23,7 @@ function HomepageHeader() {
   )
 }
 
-export default function Home(): JSX.Element {
+const Home: React.FC = () => {
   return (
     <Layout>
       <HomepageHeader />
@@ -35,3 +33,5 @@ export default function Home(): JSX.Element {
     </Layout>
   )
 }
+
+export default Home

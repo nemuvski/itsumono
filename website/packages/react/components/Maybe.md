@@ -5,13 +5,13 @@ sidebar_label: "Maybe"
 custom_edit_url: null
 ---
 
-**Maybe**(`props`, `context?`): ``null`` \| `ReactElement`<`any`, `any`\>
+**Maybe**(`props`, `context?`): ``null`` \| `ReactElement`\<`any`, `any`\>
 
 条件式がtrueになった場合のみ子要素を出力するコンポーネント
 
 **`Example`**
 
-```ts
+```tsx
 <Maybe test={someCondition}>
   <span>hello!</span>
 </Maybe>
@@ -21,9 +21,9 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PropsWithChildren`<{ `test?`: ``null`` \| `boolean`  }\> |
+| `props` | `PropsWithChildren`\<\{ `test?`: ``null`` \| `boolean`  \}\> |
 | `context?` | `any` |
 
 ## Returns
 
-``null`` \| `ReactElement`<`any`, `any`\>
+``null`` \| `ReactElement`\<`any`, `any`\>

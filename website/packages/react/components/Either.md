@@ -5,13 +5,13 @@ sidebar_label: "Either"
 custom_edit_url: null
 ---
 
-**Either**(`props`, `context?`): ``null`` \| `ReactElement`<`any`, `any`\>
+**Either**(`props`, `context?`): ``null`` \| `ReactElement`\<`any`, `any`\>
 
 条件式がtrue/falseで出力する内容を切り替えるコンポーネント
 
 **`Example`**
 
-```ts
+```tsx
 <Either
   test={someCondition}
   match={'testの条件式がtrueの時の出力内容'}
@@ -31,4 +31,4 @@ custom_edit_url: null
 
 ## Returns
 
-``null`` \| `ReactElement`<`any`, `any`\>
+``null`` \| `ReactElement`\<`any`, `any`\>

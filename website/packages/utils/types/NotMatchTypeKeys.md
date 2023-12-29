@@ -5,7 +5,7 @@ sidebar_label: "NotMatchTypeKeys"
 custom_edit_url: null
 ---
 
-**NotMatchTypeKeys**<`T`, `U`\>: keyof `Omit`<`T`, [`MatchTypeKeys`](MatchTypeKeys.md)<`T`, `U`\>\>
+**NotMatchTypeKeys**\<`T`, `U`\>: keyof `Omit`\<`T`, [`MatchTypeKeys`](MatchTypeKeys.md)\<`T`, `U`\>\>
 
 Tのプロパティのうち、Uで指定した型を持たないプロパティのキーを取り出す
 

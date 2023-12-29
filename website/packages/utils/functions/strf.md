@@ -5,7 +5,7 @@ sidebar_label: "strf"
 custom_edit_url: null
 ---
 
-**strf**<`F`\>(`str`, `fields`, `transFn?`): `string`
+**strf**\<`F`\>(`str`, `fields`, `transFn?`): `string`
 
 引数str(テンプレート)に引数fieldsの値を埋め込んだ文字列を返却
 
@@ -44,7 +44,7 @@ strf('{n} {und}', { n: null, und: undefined })
 
 | Name | Type                                                              |
 | :------ |:------------------------------------------------------------------|
-| `F` | extends `Record`<`string`, [`Primitive`](../types/Primitive.md)\> |
+| `F` | extends `Record`\<`string`, [`Primitive`](../types/Primitive.md)\> |
 
 #### Parameters
 
@@ -52,7 +52,7 @@ strf('{n} {und}', { n: null, und: undefined })
 | :------ | :------ | :------ |
 | `str` | `string` | テンプレート |
 | `fields` | `F` | 埋め込む値 |
-| `transFn` | (`fieldName`: keyof `F`, `fieldValue`: `F`[keyof `F`]) => `string` | 埋め込む際の処理(出力するロジックをカスタマイズしたい場合のみ) |
+| `transFn` | (`fieldName`: keyof `F`, `fieldValue`: `F`[keyof `F`]) =\> `string` | 埋め込む際の処理(出力するロジックをカスタマイズしたい場合のみ) |
 
 #### Returns
 

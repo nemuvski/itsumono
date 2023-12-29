@@ -1,4 +1,3 @@
-import React from 'react'
 import clsx from 'clsx'
 import Feature1 from '@site/src/components/svg/Feature1'
 import Feature2 from '@site/src/components/svg/Feature2'
@@ -42,7 +41,7 @@ const FeatureList: FeatureItem[] = [
   },
 ]
 
-function Feature({ title, description, Svg, className }: FeatureItem) {
+const Feature: React.FC<FeatureItem> = ({ title, description, Svg, className }) => {
   return (
     <div className={clsx('col col--4')}>
       <div className='text--center'>
@@ -56,7 +55,7 @@ function Feature({ title, description, Svg, className }: FeatureItem) {
   )
 }
 
-export default function HomepageFeatures(): JSX.Element {
+const HomepageFeatures: React.FC = () => {
   return (
     <section className={styles.features}>
       <div className='container'>
@@ -69,3 +68,5 @@ export default function HomepageFeatures(): JSX.Element {
     </section>
   )
 }
+
+export default HomepageFeatures

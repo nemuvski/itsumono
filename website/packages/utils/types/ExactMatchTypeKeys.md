@@ -5,7 +5,7 @@ sidebar_label: "ExactMatchTypeKeys"
 custom_edit_url: null
 ---
 
-**ExactMatchTypeKeys**<`T`, `U`\>: { [K in keyof T]-?: [U] extends [T[K]] ? [T[K]] extends [U] ? K : never : never }[keyof `T`]
+**ExactMatchTypeKeys**\<`T`, `U`\>: \{ [K in keyof T]-?: [U] extends [T[K]] ? [T[K]] extends [U] ? K : never : never \}[keyof `T`]
 
 Tのプロパティのうち、Uで指定した型と一致するプロパティのキーを取り出す
 

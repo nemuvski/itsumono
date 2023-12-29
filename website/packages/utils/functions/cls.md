@@ -44,7 +44,7 @@ cls({ hello: true, world: false })
 
 | Name | Type                                  |
 | :------ |:--------------------------------------|
-| `value` | `undefined` \| ``null`` \| `string` \| `number` \| `boolean` \| `Record`<`string`, `undefined` \| ``null`` \| `boolean`\> \| (`undefined` \| ``null`` \| `string` \| `number` \| `boolean` \| `Record`<`string`, `undefined` \| ``null`` \| `boolean`\>)[] |
+| `value` | `undefined` \| ``null`` \| `string` \| `number` \| `boolean` \| `Record`\<`string`, `undefined` \| ``null`` \| `boolean`\> \| (`undefined` \| ``null`` \| `string` \| `number` \| `boolean` \| `Record`\<`string`, `undefined` \| ``null`` \| `boolean`\>)[] |
 | `options?` | [`ClsOptions`](../types/ClsOptions.md) |
 
 #### Returns
