@@ -11,7 +11,7 @@ custom_edit_url: null
 
 **`Example`**
 
-```ts
+```tsx
 <Either
   test={someCondition}
   match={'testの条件式がtrueの時の出力内容'}

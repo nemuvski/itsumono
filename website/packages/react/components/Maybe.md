@@ -11,7 +11,7 @@ custom_edit_url: null
 
 **`Example`**
 
-```ts
+```tsx
 <Maybe test={someCondition}>
   <span>hello!</span>
 </Maybe>

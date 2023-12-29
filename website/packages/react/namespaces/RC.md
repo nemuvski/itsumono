@@ -30,7 +30,7 @@ ___
 
 **`Example`**
 
-```ts
+```tsx
 const YourComponent: RC.WithChildren<{ value: string }> = ({ value, children }) => {
   // コンポーネントの内容
 }
