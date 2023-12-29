@@ -121,14 +121,6 @@ const config: Config = {
       additionalLanguages: ['bash'],
     },
   } satisfies Preset.ThemeConfig,
-
-  // markdown: {
-  //   mdx1Compat: {
-  //     comments: true,
-  //     admonitions: true,
-  //     headingIds: true,
-  //   },
-  // },
 }
 
-module.exports = config
+export default config
