@@ -118,7 +118,7 @@ const config: Config = {
     prism: {
       theme: themes.oceanicNext,
       // デフォルト以外に含む言語
-      additionalLanguages: ['bash', 'ts'],
+      additionalLanguages: ['bash'],
     },
   } satisfies Preset.ThemeConfig,
 
