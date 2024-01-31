@@ -1,6 +1,7 @@
 const Feature3: React.FC<React.ComponentProps<'svg'>> = (props) => {
   return (
-    <svg {...props} xmlns='http://www.w3.org/2000/svg' width='729' height='658' viewBox='0 0 729 658'>
+    <svg {...props} xmlns='http://www.w3.org/2000/svg' width='729' height='658' viewBox='0 0 729 658' role='img'>
+      <title>Feature 3</title>
       <rect y='93' width='298' height='168' fill='var(--ifm-color-primary-lighter)' />
       <path
         d='M535.31443,392.74227h-300v-170h300Zm-298-2h296v-166h-296Z'
