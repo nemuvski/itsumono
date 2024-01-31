@@ -5,7 +5,7 @@ node_modules/
 
 # Editor/IDE
 .idea/
-.vscode/
+#.vscode/
 
 # Logs
 *.log

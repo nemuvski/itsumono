@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { isNotNullish, isNumber, Nullish, separateArray } from '../../src'
+import { isNotNullish, isNumber, type Nullish, separateArray } from '../../src'
 
 describe('separateArray()', () => {
   test('separateArray() - Pattern1', () => {

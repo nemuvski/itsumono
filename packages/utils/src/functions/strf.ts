@@ -39,7 +39,7 @@ import { escapeRegExpChars } from './escapeRegExpChars'
 export function strf<F extends Record<string, Primitive>>(
   str: string,
   fields: F,
-  transFn: (fieldName: keyof F, fieldValue: F[keyof F]) => string = (n, v) => String(v).toString()
+  transFn: (fieldName: keyof F, fieldValue: F[keyof F]) => string = (_n, v) => String(v).toString()
 ) {
   if (!Object.keys(fields).length) {
     return str

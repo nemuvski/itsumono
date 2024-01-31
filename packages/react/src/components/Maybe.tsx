@@ -1,4 +1,4 @@
-import { RC } from '../types/rc'
+import type { RC } from '../types/rc'
 
 /**
  * 条件式がtrueになった場合のみ子要素を出力するコンポーネント

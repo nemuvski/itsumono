@@ -1,0 +1,83 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "ignore": [
+      ".turbo/**",
+      ".idea/**",
+      ".coverage/**",
+      "packages/**/dist/**",
+      "website/.docusaurus/**",
+      "website/.typedoc/**",
+      "website/build/**"
+    ],
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "noUnusedVariables": "warn"
+      },
+      "style": {
+        "noDefaultExport": "off",
+        "noUnusedTemplateLiteral": "off"
+      },
+      "nursery": {
+        "useExportType": "error",
+        "useImportType": "error",
+        "noUnusedImports": "warn",
+        "noGlobalEval": "error",
+        "noGlobalAssign": "error",
+        "useNodejsImportProtocol": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "ignore": [
+      ".turbo/",
+      ".idea/**",
+      ".coverage/**",
+      "packages/**/dist/**",
+      "website/.docusaurus/**",
+      "website/.typedoc/**",
+      "website/build/**"
+    ],
+    "lineEnding": "lf",
+    "lineWidth": 120,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "javascript": {
+    "formatter": {
+      "trailingComma": "es5",
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "jsxQuoteStyle": "single",
+      "arrowParentheses": "always"
+    }
+  },
+  "overrides": [
+    {
+      "include": [".vscode/**"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        }
+      }
+    },
+    {
+      "include": ["website/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noArrayIndexKey": "off"
+          }
+        }
+      }
+    }
+  ]
+}

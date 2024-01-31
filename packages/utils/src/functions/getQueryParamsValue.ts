@@ -1,7 +1,7 @@
-import { isString } from './isString'
-import { getQueryString } from './getQueryString'
-import { isURL } from './isURL'
 import { escapeRegExpChars } from './escapeRegExpChars'
+import { getQueryString } from './getQueryString'
+import { isString } from './isString'
+import { isURL } from './isURL'
 
 /**
  * 引数urlから指定したパラメータをキーとした配列を値に持つオブジェクトを返却
@@ -33,14 +33,14 @@ export function getQueryParamsValue<P extends string>(
     return res
   }
 
-  paramNames.forEach((f) => {
+  for (const f of paramNames) {
     res[f] = []
-  })
+  }
 
   if (isString(url)) {
     const queryStr = getQueryString(url)
     const paramNamesPattern = paramNames.map((k) => escapeRegExpChars(k)).join('|')
-    const matches = queryStr.matchAll(new RegExp('(\\?|&)(' + paramNamesPattern + ')=([^&]*)', 'g'))
+    const matches = queryStr.matchAll(new RegExp(`(\\?|&)(${paramNamesPattern})=([^&]*)`, 'g'))
     for (const m of matches) {
       // NOTE: 添字2はパラメータ名グループ, 添字3はパラメータの値グループ
       if (m[2] !== undefined && m[3] !== undefined) {
@@ -49,9 +49,9 @@ export function getQueryParamsValue<P extends string>(
     }
   } else {
     const searchParams = isURL(url) ? url.searchParams : url
-    paramNames.forEach((param) => {
+    for (const param of paramNames) {
       res[param] = searchParams.getAll(param)
-    })
+    }
   }
 
   return res

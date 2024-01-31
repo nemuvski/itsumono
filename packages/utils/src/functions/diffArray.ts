@@ -39,24 +39,25 @@ export function diffArray<T>(
 
   if (!left.length) {
     return { leftOnlyItems, rightOnlyItems: right, bothItems }
-  } else if (!right.length) {
+  }
+  if (!right.length) {
     return { leftOnlyItems: left, rightOnlyItems, bothItems }
-  } else {
-    // 配列leftを起点に配列leftにしか無い要素、両方に存在する要素を評価する
-    for (const leftItem of left) {
-      const matchedIndex = right.findIndex((rightItem) => matchFn(leftItem, rightItem))
-      if (matchedIndex < 0) {
-        leftOnlyItems.push(leftItem)
-      } else {
-        bothItems.push(leftItem)
-      }
+  }
+
+  // 配列leftを起点に配列leftにしか無い要素、両方に存在する要素を評価する
+  for (const leftItem of left) {
+    const matchedIndex = right.findIndex((rightItem) => matchFn(leftItem, rightItem))
+    if (matchedIndex < 0) {
+      leftOnlyItems.push(leftItem)
+    } else {
+      bothItems.push(leftItem)
     }
-    // 次に、配列rightから両方に存在する要素を除いたものを求める
-    for (const rightItem of right) {
-      const matchedIndex = bothItems.findIndex((bothItem) => matchFn(rightItem, bothItem))
-      if (matchedIndex < 0) {
-        rightOnlyItems.push(rightItem)
-      }
+  }
+  // 次に、配列rightから両方に存在する要素を除いたものを求める
+  for (const rightItem of right) {
+    const matchedIndex = bothItems.findIndex((bothItem) => matchFn(rightItem, bothItem))
+    if (matchedIndex < 0) {
+      rightOnlyItems.push(rightItem)
     }
   }
   return { leftOnlyItems, rightOnlyItems, bothItems }

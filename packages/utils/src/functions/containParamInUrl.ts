@@ -1,7 +1,7 @@
-import { isString } from './isString'
-import { getQueryString } from './getQueryString'
-import { isURL } from './isURL'
 import { escapeRegExpChars } from './escapeRegExpChars'
+import { getQueryString } from './getQueryString'
+import { isString } from './isString'
+import { isURL } from './isURL'
 
 /**
  * 引数urlで指定したパラメータ名が存在する場合はTrueを返却
@@ -25,7 +25,7 @@ import { escapeRegExpChars } from './escapeRegExpChars'
  */
 export function containParamInUrl<P extends string>(url: string | URL | URLSearchParams, paramName: P) {
   if (isString(url)) {
-    return new RegExp('(\\?|&)' + escapeRegExpChars(paramName) + '=', 'g').test(getQueryString(url))
+    return new RegExp(`(\\?|&)${escapeRegExpChars(paramName)}=`, 'g').test(getQueryString(url))
   }
   return isURL(url) ? url.searchParams.has(paramName) : url.has(paramName)
 }

@@ -28,9 +28,8 @@ export function buildPath(...paths: Array<string | number | null | undefined>) {
         if (isString(p)) {
           if (i === 0) {
             return p.trim().replace(/\/*$/g, '')
-          } else {
-            return p.trim().replace(/(^\/*|\/*$)/g, '')
           }
+          return p.trim().replace(/(^\/*|\/*$)/g, '')
         }
         // フォールバック
         return p

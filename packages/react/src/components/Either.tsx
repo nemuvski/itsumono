@@ -1,4 +1,4 @@
-import { RC } from '../types/rc'
+import type { RC } from '../types/rc'
 
 /**
  * 条件式がtrue/falseで出力する内容を切り替えるコンポーネント
