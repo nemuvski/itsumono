@@ -29,8 +29,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "typecheck": "tsc --noEmit",
     "test": "vitest --run --coverage",
     "build": "tsup src/ --format=esm,cjs --dts"
@@ -44,7 +42,9 @@
     "react": "^18.0.0"
   },
   "tsup": {
-    "entry": ["src/index.ts"],
+    "entry": [
+      "src/index.ts"
+    ],
     "splitting": false,
     "sourcemap": false,
     "minify": true,
