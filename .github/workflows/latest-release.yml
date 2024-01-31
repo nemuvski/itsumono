@@ -6,12 +6,9 @@ on:
   release:
     types: [released]
 
-env:
-  PNPM_VERSION: 8.6.5
-
 jobs:
   release-utils:
-    name: 'Latest release @itsumono/utils'
+    name: "Latest release @itsumono/utils"
     # Do not run if the release is a prerelease or draft
     # @see https://docs.github.com/en/webhooks-and-events/webhooks/webhook-events-and-payloads#release
     if: ${{ startsWith(github.event.release.tag_name, 'utils@') && github.event.release.prerelease == false && github.event.release.draft == false }}
@@ -20,11 +17,11 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
-          registry-url: 'https://registry.npmjs.org'
+          node-version-file: ".node-version"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Current Node.js version
         id: current-node-version
@@ -32,19 +29,16 @@ jobs:
         run: |
           echo "BUILD_NODE_VERSION=$(node -v | sed 's/^v//i')" >> $GITHUB_OUTPUT
 
-      # Install pnpm
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: ${{ env.PNPM_VERSION }}
-          run_install: false
+      # Set up pnpm
+      - name: Set up pnpm
+        id: pnpm-setup
+        run: corepack enable
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -55,9 +49,9 @@ jobs:
       # Install dependencies
       - name: Cache restore dependencies
         id: cache-restore-dependencies
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
         if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
@@ -65,9 +59,9 @@ jobs:
       - name: Cache save dependencies
         if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
         id: cache-save-dependencies
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       # Build and Deploy
@@ -82,7 +76,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   release-react:
-    name: 'Latest release @itsumono/react'
+    name: "Latest release @itsumono/react"
     # Do not run if the release is a prerelease or draft
     # @see https://docs.github.com/en/webhooks-and-events/webhooks/webhook-events-and-payloads#release
     if: ${{ startsWith(github.event.release.tag_name, 'react@') && github.event.release.prerelease == false && github.event.release.draft == false }}
@@ -91,11 +85,11 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
-          registry-url: 'https://registry.npmjs.org'
+          node-version-file: ".node-version"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Current Node.js version
         id: current-node-version
@@ -103,19 +97,16 @@ jobs:
         run: |
           echo "BUILD_NODE_VERSION=$(node -v | sed 's/^v//i')" >> $GITHUB_OUTPUT
 
-      # Install pnpm
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: ${{ env.PNPM_VERSION }}
-          run_install: false
+      # Set up pnpm
+      - name: Set up pnpm
+        id: pnpm-setup
+        run: corepack enable
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -126,9 +117,9 @@ jobs:
       # Install dependencies
       - name: Cache restore dependencies
         id: cache-restore-dependencies
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
         if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
@@ -136,9 +127,9 @@ jobs:
       - name: Cache save dependencies
         if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
         id: cache-save-dependencies
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       # Build and Deploy
