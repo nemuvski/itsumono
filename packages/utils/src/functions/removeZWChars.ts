@@ -41,5 +41,5 @@ export function removeZWChars(str: string, options?: RemoveZWCharsOptions) {
     if (options.rlm) regexStr += '\u200f'
     if (options.zwnbsp) regexStr += '\ufeff'
   }
-  return str.replace(new RegExp('[' + regexStr + ']', 'g'), '')
+  return str.replace(new RegExp(`[${regexStr}]`, 'g'), '')
 }

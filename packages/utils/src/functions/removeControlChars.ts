@@ -39,5 +39,5 @@ export function removeControlChars(str: string, options?: RemoveControlCharsOpti
     if (options.lf) regexStr += '\x0A'
     if (options.cr) regexStr += '\x0D'
   }
-  return str.replace(new RegExp('[' + regexStr + ']', 'g'), '')
+  return str.replace(new RegExp(`[${regexStr}]`, 'g'), '')
 }

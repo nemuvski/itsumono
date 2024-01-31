@@ -1,7 +1,7 @@
-import { isNullish } from './isNullish'
 import { isBoolean } from './isBoolean'
-import { isString } from './isString'
+import { isNullish } from './isNullish'
 import { isNumber } from './isNumber'
+import { isString } from './isString'
 
 /**
  * cls()の引数optionsの型
@@ -58,10 +58,10 @@ export function cls(
   if (isString(value) || isNumber(value)) return options?.trimPeriod ? String(value).replace(/\.+/g, '') : String(value)
   let res = ''
   if (Array.isArray(value)) {
-    value.forEach((n) => {
+    for (const n of value) {
       const childRes = cls(n, options)
       if (childRes) res += (res && ' ') + childRes
-    })
+    }
   } else {
     for (const key in value) {
       if (value[key]) res += (res && ' ') + key

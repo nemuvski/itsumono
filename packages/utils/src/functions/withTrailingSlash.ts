@@ -16,5 +16,5 @@ import { removeTrailingSlash } from './removeTrailingSlash'
  * withTrailingSlash('http://localhost:8000/sample')
  */
 export function withTrailingSlash(path: string) {
-  return removeTrailingSlash(path) + '/'
+  return `${removeTrailingSlash(path)}/`
 }

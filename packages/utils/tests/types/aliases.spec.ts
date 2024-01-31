@@ -1,5 +1,5 @@
 import { expectTypeOf, describe, test } from 'vitest'
-import { Primitive, Falsy, Nullish } from '../../src'
+import type { Primitive, Falsy, Nullish } from '../../src'
 
 describe('types/aliases.ts', () => {
   const date = new Date('August 19, 1975 23:15:30')

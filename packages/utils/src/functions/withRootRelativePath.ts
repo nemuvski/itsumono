@@ -11,5 +11,5 @@
  * withRootRelativePath('path/to/test')
  */
 export function withRootRelativePath(path: string) {
-  return '/' + path.trim().replace(/^\/+/, '')
+  return `/${path.trim().replace(/^\/+/, '')}`
 }

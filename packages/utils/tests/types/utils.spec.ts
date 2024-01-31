@@ -1,5 +1,5 @@
 import { expectTypeOf, describe, test } from 'vitest'
-import {
+import type {
   MatchTypeKeys,
   ExactMatchTypeKeys,
   NotMatchTypeKeys,

@@ -37,7 +37,7 @@
 export function separateArray<T, M extends T, N extends T>(arr: Array<T>, matchFn: (v: T) => boolean) {
   const matches: Array<M> = []
   const notMatches: Array<N> = []
-  arr.forEach((v) => {
+  for (const v of arr) {
     if (matchFn(v)) {
       // @ts-ignore: MはTと異なる場合がある
       matches.push(v)
@@ -45,6 +45,6 @@ export function separateArray<T, M extends T, N extends T>(arr: Array<T>, matchF
       // @ts-ignore: NはTと異なる場合がある
       notMatches.push(v)
     }
-  })
+  }
   return { matches, notMatches }
 }
