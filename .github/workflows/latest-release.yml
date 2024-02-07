@@ -21,48 +21,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
+          cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Current Node.js version
-        id: current-node-version
-        shell: bash
-        run: |
-          echo "BUILD_NODE_VERSION=$(node -v | sed 's/^v//i')" >> $GITHUB_OUTPUT
-
-      # Set up pnpm
       - name: Set up pnpm
-        id: pnpm-setup
         run: corepack enable
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      # Install dependencies
-      - name: Cache restore dependencies
-        id: cache-restore-dependencies
-        uses: actions/cache/restore@v4
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
-        if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile --reporter=silent
-      - name: Cache save dependencies
-        if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
-        id: cache-save-dependencies
-        uses: actions/cache/save@v4
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       # Build and Deploy
       - name: building
@@ -89,48 +54,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
+          cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Current Node.js version
-        id: current-node-version
-        shell: bash
-        run: |
-          echo "BUILD_NODE_VERSION=$(node -v | sed 's/^v//i')" >> $GITHUB_OUTPUT
-
-      # Set up pnpm
       - name: Set up pnpm
-        id: pnpm-setup
         run: corepack enable
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      # Install dependencies
-      - name: Cache restore dependencies
-        id: cache-restore-dependencies
-        uses: actions/cache/restore@v4
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
-        if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile --reporter=silent
-      - name: Cache save dependencies
-        if: steps.cache-restore-dependencies.outputs.cache-hit != 'true'
-        id: cache-save-dependencies
-        uses: actions/cache/save@v4
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-node${{ steps.current-node-version.outputs.BUILD_NODE_VERSION }}-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       # Build and Deploy
       - name: building
