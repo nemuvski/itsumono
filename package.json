@@ -27,8 +27,6 @@
     "@local/tsconfig": "workspace:*",
     "@testing-library/react": "^14.1.2",
     "@types/node": "^20.5.7",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.1.0",
     "jsdom": "^23.0.1",
