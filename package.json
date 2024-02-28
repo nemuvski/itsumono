@@ -2,7 +2,7 @@
   "name": "itsumono",
   "author": "K.Utsunomiya",
   "private": true,
-  "packageManager": "pnpm@8.6.5",
+  "packageManager": "pnpm@8.15.4",
   "engines": {
     "node": ">=20 <21",
     "pnpm": ">=8.6"
