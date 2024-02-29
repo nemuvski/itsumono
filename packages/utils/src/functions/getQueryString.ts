@@ -7,6 +7,7 @@ import { removeHashFragment } from './removeHashFragment'
  *
  * @param url
  * @returns {string}
+ * @throws {URIError} 内部で利用している `decodeURIComponent()` がエラーをスローする可能性がある
  * @example
  * // 返値: ?test1=32&test2=ア
  * getQueryString('https://localhost:8080?test1=32&test2=%E3%82%A2#fragment')
