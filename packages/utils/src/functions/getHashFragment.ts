@@ -7,6 +7,7 @@ import { isString } from './isString'
  *
  * @param url
  * @returns {string}
+ * @throws {URIError} 内部で利用している `decodeURIComponent()` がエラーをスローする可能性がある
  * @example
  * // 返値: hash fragment
  * getHashFragment('https://localhost:8080?test=32#hash+fragment')

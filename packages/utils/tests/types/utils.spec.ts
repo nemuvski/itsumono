@@ -1,9 +1,10 @@
-import { expectTypeOf, describe, test } from 'vitest'
+import { describe, expectTypeOf, test } from 'vitest'
 import type {
-  MatchTypeKeys,
   ExactMatchTypeKeys,
-  NotMatchTypeKeys,
   ExactNotMatchTypeKeys,
+  MatchTypeKeys,
+  NonNullishFields,
+  NotMatchTypeKeys,
   RequiredAtLeastOne,
 } from '../../src'
 
@@ -112,5 +113,27 @@ describe('types/utils.ts', () => {
 
       expectTypeOf({}).not.toEqualTypeOf<Test>()
     })
+  })
+
+  test('NonNullishFields', () => {
+    expectTypeOf<
+      NonNullishFields<{
+        id: `post_${number}`
+        title: string
+        body: string | undefined
+        author: { name: string; age: number | undefined }
+        createdAt: Date
+        updatedAt?: Date | null
+      }>
+    >().toEqualTypeOf<{
+      id: `post_${number}`
+      title: string
+      body: string
+      author: { name: string; age: number | undefined }
+      createdAt: Date
+      updatedAt: Date
+    }>()
+
+    expectTypeOf<NonNullishFields<string>>().toEqualTypeOf<string>()
   })
 })

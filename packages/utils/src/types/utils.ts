@@ -126,3 +126,21 @@ export type ExactNotMatchTypeKeys<T, U> = keyof Omit<T, ExactMatchTypeKeys<T, U>
 export type RequiredAtLeastOne<T, K extends keyof T = keyof T> = Pick<T, Exclude<keyof T, K>> &
   Partial<Pick<T, K>> &
   (K extends keyof T ? { [_K in K]-?: Pick<Required<T>, _K> }[K] : never)
+
+/**
+ * オブジェクトの全フィールドの型からundefined,nullを除外した型を得る
+ *
+ * ※ ネストしたオブジェクトのフィールドに対しては適用されない
+ *
+ * @example
+ * type Post = {
+ *   id: `post_${number}`
+ *   title: string
+ *   body: string | undefined
+ *   author: { name: string; age: number | undefined }
+ *   createdAt: Date
+ *   updatedAt?: Date | null
+ * }
+ * type NewPost = NonNullishFields<Post> // { id: `post_${number}`; title: string; body: string; author: { name: string; age: number | undefined }; createdAt: Date; updatedAt: Date }
+ */
+export type NonNullishFields<T extends {}> = { [K in keyof T]-?: NonNullable<T[K]> }
