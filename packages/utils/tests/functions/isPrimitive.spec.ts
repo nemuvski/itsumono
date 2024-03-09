@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { isPrimitive } from '../../src'
 
 test('isPrimitive()', () => {
@@ -7,7 +7,7 @@ test('isPrimitive()', () => {
   expect(isPrimitive(null)).toBe(true)
   expect(isPrimitive(undefined)).toBe(true)
   expect(isPrimitive(0)).toBe(true)
-  expect(isPrimitive(NaN)).toBe(true)
+  expect(isPrimitive(Number.NaN)).toBe(true)
   expect(isPrimitive('')).toBe(true)
   // @ts-ignore: 0n
   expect(isPrimitive(0n)).toBe(true)
