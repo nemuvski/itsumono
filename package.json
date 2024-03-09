@@ -7,11 +7,7 @@
     "node": ">=20 <21",
     "pnpm": ">=8.6"
   },
-  "workspaces": [
-    "packages/*",
-    "website",
-    "local/*"
-  ],
+  "workspaces": ["packages/*", "website", "local/*"],
   "scripts": {
     "lint": "biome lint ./",
     "lint:fix": "biome lint --apply ./",

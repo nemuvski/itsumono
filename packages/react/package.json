@@ -17,14 +17,8 @@
   "bugs": {
     "url": "https://github.com/nemuvski/itsumono/issues"
   },
-  "keywords": [
-    "typescript",
-    "utilities",
-    "react"
-  ],
-  "files": [
-    "dist/**"
-  ],
+  "keywords": ["typescript", "utilities", "react"],
+  "files": ["dist/**"],
   "module": "dist/index.mjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,18 +36,14 @@
     "react": "^18.0.0"
   },
   "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
+    "entry": ["src/index.ts"],
     "splitting": false,
     "sourcemap": false,
     "minify": true,
     "clean": true
   },
   "typedocOptions": {
-    "entryPoints": [
-      "./src/index.ts"
-    ],
+    "entryPoints": ["./src/index.ts"],
     "readme": "./README.md"
   }
 }

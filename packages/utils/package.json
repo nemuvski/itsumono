@@ -17,13 +17,8 @@
   "bugs": {
     "url": "https://github.com/nemuvski/itsumono/issues"
   },
-  "keywords": [
-    "typescript",
-    "utilities"
-  ],
-  "files": [
-    "dist/**"
-  ],
+  "keywords": ["typescript", "utilities"],
+  "files": ["dist/**"],
   "module": "dist/index.mjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,18 +28,14 @@
     "build": "tsup src/ --format=esm,cjs --dts"
   },
   "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
+    "entry": ["src/index.ts"],
     "splitting": false,
     "sourcemap": false,
     "minify": true,
     "clean": true
   },
   "typedocOptions": {
-    "entryPoints": [
-      "./src/index.ts"
-    ],
+    "entryPoints": ["./src/index.ts"],
     "readme": "./README.md"
   }
 }
