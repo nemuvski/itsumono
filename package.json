@@ -7,11 +7,7 @@
     "node": ">=20 <21",
     "pnpm": ">=8.6"
   },
-  "workspaces": [
-    "packages/*",
-    "website",
-    "local/*"
-  ],
+  "workspaces": ["packages/*", "website", "local/*"],
   "scripts": {
     "lint": "biome lint ./",
     "lint:fix": "biome lint --apply ./",
@@ -23,7 +19,7 @@
     "docs": "npm run build -w website"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "1.6.0",
     "@local/tsconfig": "workspace:*",
     "@testing-library/react": "^14.2.1",
     "@types/node": "^20.11.21",
