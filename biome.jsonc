@@ -45,7 +45,9 @@
       "packages/**/dist/**",
       "website/.docusaurus/**",
       "website/.typedoc/**",
-      "website/build/**"
+      "website/build/**",
+      "package.json",
+      "turbo.json"
     ],
     "lineEnding": "lf",
     "lineWidth": 120,
