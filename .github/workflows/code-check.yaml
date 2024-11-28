@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
           cache: "pnpm"
-
-      - name: Set up pnpm
-        run: corepack enable
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --reporter=silent
 
