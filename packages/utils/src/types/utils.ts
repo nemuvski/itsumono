@@ -144,3 +144,13 @@ export type RequiredAtLeastOne<T, K extends keyof T = keyof T> = Pick<T, Exclude
  * type NewPost = NonNullishFields<Post> // { id: `post_${number}`; title: string; body: string; author: { name: string; age: number | undefined }; createdAt: Date; updatedAt: Date }
  */
 export type NonNullishFields<T extends {}> = { [K in keyof T]-?: NonNullable<T[K]> }
+
+/**
+ * 配列の要素の型を取得する
+ *
+ * @example
+ * type T0 = ArrayElement<string[]> // string
+ * type T1 = ArrayElement<readonly string[]> // string
+ * type T2 = ArrayElement<Array<string | null>> // string | null
+ */
+export type ArrayElement<T> = T extends readonly (infer U)[] ? U : never
