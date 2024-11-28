@@ -1,5 +1,6 @@
 import { describe, expectTypeOf, test } from 'vitest'
 import type {
+  ArrayElement,
   ExactMatchTypeKeys,
   ExactNotMatchTypeKeys,
   MatchTypeKeys,
@@ -135,5 +136,15 @@ describe('types/utils.ts', () => {
     }>()
 
     expectTypeOf<NonNullishFields<string>>().toEqualTypeOf<string>()
+  })
+
+  test('ArrayElement', () => {
+    expectTypeOf<ArrayElement<Array<number>>>().toEqualTypeOf<number>()
+    expectTypeOf<ArrayElement<ReadonlyArray<number>>>().toEqualTypeOf<number>()
+    expectTypeOf<ArrayElement<Array<{ v: string[] } | string | null>>>().toEqualTypeOf<
+      { v: string[] } | string | null
+    >()
+    expectTypeOf<ArrayElement<null>>().toEqualTypeOf<never>()
+    expectTypeOf<ArrayElement<[]>>().toEqualTypeOf<never>()
   })
 })
