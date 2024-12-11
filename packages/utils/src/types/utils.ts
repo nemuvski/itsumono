@@ -154,3 +154,25 @@ export type NonNullishFields<T extends {}> = { [K in keyof T]-?: NonNullable<T[K
  * type T2 = ArrayElement<Array<string | null>> // string | null
  */
 export type ArrayElement<T> = T extends readonly (infer U)[] ? U : never
+
+/**
+ * Tの全てのプロパティを必須(undefined)を除いた型を取得する
+ *
+ * 関数型は引数、戻り値の型をについては除かれない
+ *
+ * @example
+ * type T0 = DeepRequired<{ a?: number | undefined | null }> // { a: number | null }
+ * type T1 = DeepRequired<{ a?: { b?: string | undefined | null } }> // { a: { b: string | null } }
+ * type T2 = DeepRequired<string | undefined | null> // string | null
+ * type T3 = DeepRequired<{ a?: (v?: string) => string | undefined | null }> // { a: (v?: string) => string | undefined | null }
+ * type T4 = DeepRequired<Array<string | undefined | null>> // Array<string | null>
+ * type T5 = DeepRequired<Array<{ a?: string | undefined | null }>> // Array<{ a: string | null }>
+ */
+export type DeepRequired<T> = T extends (infer U)[]
+  ? DeepRequired<U>[]
+  : T extends object
+    ? // biome-ignore lint/complexity/noBannedTypes: ignore
+      T extends Function
+      ? T // 関数の場合はそのまま
+      : { [K in keyof T]-?: DeepRequired<T[K]> } // オブジェクトの場合は再帰
+    : Exclude<T, undefined> // プリミティブ型の場合は、undefinedを除外

@@ -1,6 +1,7 @@
 import { describe, expectTypeOf, test } from 'vitest'
 import type {
   ArrayElement,
+  DeepRequired,
   ExactMatchTypeKeys,
   ExactNotMatchTypeKeys,
   MatchTypeKeys,
@@ -146,5 +147,58 @@ describe('types/utils.ts', () => {
     >()
     expectTypeOf<ArrayElement<null>>().toEqualTypeOf<never>()
     expectTypeOf<ArrayElement<[]>>().toEqualTypeOf<never>()
+  })
+
+  test('DeepRequired', () => {
+    expectTypeOf<DeepRequired<Record<string, number | undefined | null>>>().toEqualTypeOf<
+      Record<string, number | null>
+    >()
+    expectTypeOf<
+      DeepRequired<{
+        a1?: {
+          b?: {
+            c?: {
+              d?: string | undefined
+            }
+          }
+        }
+        a2?: {
+          b?: {
+            c?: {
+              d?: number | undefined | null
+            }
+          }
+        }
+        fn?: (v?: string) => string | undefined | null
+        array: DeepRequired<Array<string | undefined | null> | ReadonlyArray<string | undefined | null>>
+      }>
+    >().toEqualTypeOf<{
+      a1: {
+        b: {
+          c: {
+            d: string
+          }
+        }
+      }
+      a2: {
+        b: {
+          c: {
+            d: number | null
+          }
+        }
+      }
+      fn: (v?: string) => string | undefined | null
+      array: Array<string | null> | ReadonlyArray<string | null>
+    }>()
+
+    expectTypeOf<DeepRequired<string | Date | undefined | null>>().toEqualTypeOf<string | Date | null>()
+    expectTypeOf<
+      DeepRequired<Array<string | undefined | null> | ReadonlyArray<string | undefined | null>>
+    >().toEqualTypeOf<Array<string | null> | ReadonlyArray<string | null>>()
+    expectTypeOf<
+      DeepRequired<Array<{ a?: string | undefined | null }> | ReadonlyArray<{ a?: string | undefined | null }>>
+    >().toEqualTypeOf<Array<{ a: string | null }> | ReadonlyArray<{ a: string | null }>>()
+    expectTypeOf<DeepRequired<undefined>>().toEqualTypeOf<never>()
+    expectTypeOf<DeepRequired<Array<undefined>>>().toEqualTypeOf<Array<never>>()
   })
 })
