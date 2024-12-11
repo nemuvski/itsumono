@@ -1,3 +1,8 @@
 {
-  "deep": true
+  "deep": true,
+  "dep": [
+    "prod",
+    "dev",
+    "optional"
+  ]
 }
