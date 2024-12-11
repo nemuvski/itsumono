@@ -1,8 +1,4 @@
 {
   "deep": true,
-  "dep": [
-    "prod",
-    "dev",
-    "optional"
-  ]
+  "dep": ["prod", "dev", "optional"]
 }
