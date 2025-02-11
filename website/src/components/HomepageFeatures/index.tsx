@@ -1,14 +1,14 @@
-import clsx from 'clsx'
 import Feature1 from '@site/src/components/svg/Feature1'
 import Feature2 from '@site/src/components/svg/Feature2'
 import Feature3 from '@site/src/components/svg/Feature3'
+import clsx from 'clsx'
 import styles from './styles.module.css'
 
 type FeatureItem = {
   title: string
   Svg: React.FC<React.ComponentProps<'svg'>>
   className: string
-  description: JSX.Element
+  description: React.ReactNode
 }
 
 const FeatureList: FeatureItem[] = [
