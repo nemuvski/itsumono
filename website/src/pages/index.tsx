@@ -14,7 +14,6 @@ const HomepageHeader: React.FC = () => {
         <h1 className='hero__title'>{siteConfig.title}</h1>
         <p className='hero__subtitle'>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          {/* @ts-expect-error */}
           <Link to='packages' className='button button--contained button--secondary button--lg'>
             使ってみる
           </Link>
