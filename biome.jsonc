@@ -1,21 +1,30 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
-  "organizeImports": {
-    "enabled": true
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "linter": {
     "enabled": true,
-    "ignore": [
-      ".turbo/**",
-      ".idea/**",
-      ".coverage/**",
-      "packages/**/dist/**",
-      "website/.docusaurus/**",
-      "website/.typedoc/**",
-      "website/build/**"
+    "includes": [
+      "**",
+      "!.turbo/**",
+      "!**/.turbo/**",
+      "!**/.idea/**",
+      "!**/.coverage/**",
+      "!**/packages/**/dist/**",
+      "!**/website/.docusaurus/**",
+      "!**/website/.typedoc/**",
+      "!**/website/build/**"
     ],
     "rules": {
       "recommended": true,
+      "complexity": {
+        "noUselessFragments": "off"
+      },
       "correctness": {
         "useExhaustiveDependencies": "warn",
         "noUnusedVariables": "warn",
@@ -38,16 +47,18 @@
   },
   "formatter": {
     "enabled": true,
-    "ignore": [
-      ".turbo/",
-      ".idea/**",
-      ".coverage/**",
-      "packages/**/dist/**",
-      "website/.docusaurus/**",
-      "website/.typedoc/**",
-      "website/build/**",
-      "package.json",
-      "turbo.json"
+    "includes": [
+      "**",
+      "!.turbo/**",
+      "!**/.turbo/",
+      "!**/.idea/**",
+      "!**/.coverage/**",
+      "!**/packages/**/dist/**",
+      "!**/website/.docusaurus/**",
+      "!**/website/.typedoc/**",
+      "!**/website/build/**",
+      "!**/package.json",
+      "!**/turbo.json"
     ],
     "lineEnding": "lf",
     "lineWidth": 120,
@@ -65,7 +76,7 @@
   },
   "overrides": [
     {
-      "include": [".vscode/**"],
+      "includes": ["**/.vscode/**"],
       "json": {
         "parser": {
           "allowComments": true,
@@ -74,7 +85,7 @@
       }
     },
     {
-      "include": ["website/**"],
+      "includes": ["**/website/**"],
       "linter": {
         "rules": {
           "suspicious": {
