@@ -37,8 +37,6 @@ jobs:
         # https://github.com/pnpm/pnpm/issues/5894
         # https://github.com/pnpm/pnpm/issues/2995
         run: pnpm publish --no-git-checks --filter=@itsumono/utils
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   release-react:
     name: "Latest release @itsumono/react"
@@ -70,5 +68,3 @@ jobs:
         # https://github.com/pnpm/pnpm/issues/5894
         # https://github.com/pnpm/pnpm/issues/2995
         run: pnpm publish --no-git-checks --filter=@itsumono/react
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
