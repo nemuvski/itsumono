@@ -12,7 +12,7 @@ describe('safeJsonStringify()', () => {
     test('options.replacerあり (関数のケース)', () => {
       const target = { foo: 'bar', hoo: 3, goo: true }
       const { data, error } = safeJsonStringify(target, {
-        // @ts-ignore: 問題ないので型エラーを無視
+        // @ts-expect-error: 問題ないので型エラーを無視
         replacer: (key: keyof typeof target, value: (typeof target)[keyof typeof target]) => {
           if (key === 'foo') {
             return `${value}!`

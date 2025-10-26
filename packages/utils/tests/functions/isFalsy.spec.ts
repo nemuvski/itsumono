@@ -4,7 +4,6 @@ import { isFalsy } from '../../src'
 test('isFalsy()', () => {
   expect(isFalsy(false)).toBe(true)
   expect(isFalsy(0)).toBe(true)
-  // @ts-ignore: 0n
   expect(isFalsy(0n)).toBe(true)
   expect(isFalsy('')).toBe(true)
   expect(isFalsy(undefined)).toBe(true)

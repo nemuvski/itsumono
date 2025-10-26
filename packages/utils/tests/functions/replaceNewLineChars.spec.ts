@@ -7,6 +7,6 @@ test('replaceNewLineChars()', () => {
   expect(replaceNewLineChars('t\r\n\r\te\rs\nt', 'CR')).toBe('t\r\r\te\rs\rt')
   expect(replaceNewLineChars('t\r\n\r\te\rs\nt', 'CRLF')).toBe('t\r\n\r\n\te\r\ns\r\nt')
 
-  // @ts-ignore: テストのために警告無視
+  // @ts-expect-error: テストのために警告無視
   expect(() => replaceNewLineChars('t\r\n\r\te\rs\nt', 'XXX')).toThrow()
 })
