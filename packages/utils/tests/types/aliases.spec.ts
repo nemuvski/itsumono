@@ -10,7 +10,6 @@ describe('types/aliases.ts', () => {
 
     expectTypeOf('1').toMatchTypeOf<Primitive>()
     expectTypeOf(1).toMatchTypeOf<Primitive>()
-    // @ts-ignore: 1n
     expectTypeOf(1n).toMatchTypeOf<Primitive>()
     expectTypeOf(true).toMatchTypeOf<Primitive>()
     expectTypeOf(Symbol('')).toMatchTypeOf<Primitive>()
@@ -23,14 +22,12 @@ describe('types/aliases.ts', () => {
     expectTypeOf(date).not.toMatchTypeOf<Falsy>()
     expectTypeOf('1').not.toMatchTypeOf<Falsy>()
     expectTypeOf(1).not.toMatchTypeOf<Falsy>()
-    // @ts-ignore: 1n
     expectTypeOf(1n).not.toMatchTypeOf<Falsy>()
     expectTypeOf<true>(true).not.toMatchTypeOf<Falsy>()
     expectTypeOf(Symbol('')).not.toMatchTypeOf<Falsy>()
 
     expectTypeOf<false>(false).toMatchTypeOf<Falsy>()
     expectTypeOf<0>(0).toMatchTypeOf<Falsy>()
-    // @ts-ignore: 0n
     expectTypeOf<0n>(0n).toMatchTypeOf<Falsy>()
     expectTypeOf<''>('').toMatchTypeOf<Falsy>()
     expectTypeOf(undefined).toMatchTypeOf<Falsy>()
@@ -42,7 +39,6 @@ describe('types/aliases.ts', () => {
     expectTypeOf(date).not.toMatchTypeOf<Nullish>()
     expectTypeOf('').not.toMatchTypeOf<Nullish>()
     expectTypeOf(0).not.toMatchTypeOf<Nullish>()
-    // @ts-ignore: 0n
     expectTypeOf(0n).not.toMatchTypeOf<Falsy>()
     expectTypeOf(true).not.toMatchTypeOf<Nullish>()
     expectTypeOf(false).not.toMatchTypeOf<Nullish>()

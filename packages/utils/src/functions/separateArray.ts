@@ -39,10 +39,10 @@ export function separateArray<T, M extends T, N extends T>(arr: Array<T>, matchF
   const notMatches: Array<N> = []
   for (const v of arr) {
     if (matchFn(v)) {
-      // @ts-ignore: MはTと異なる場合がある
+      // @ts-expect-error: MはTと異なる場合がある
       matches.push(v)
     } else {
-      // @ts-ignore: NはTと異なる場合がある
+      // @ts-expect-error: NはTと異なる場合がある
       notMatches.push(v)
     }
   }

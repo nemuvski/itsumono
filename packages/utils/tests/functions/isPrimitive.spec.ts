@@ -9,7 +9,6 @@ test('isPrimitive()', () => {
   expect(isPrimitive(0)).toBe(true)
   expect(isPrimitive(Number.NaN)).toBe(true)
   expect(isPrimitive('')).toBe(true)
-  // @ts-ignore: 0n
   expect(isPrimitive(0n)).toBe(true)
   expect(isPrimitive(false)).toBe(true)
   expect(isPrimitive(Symbol('a'))).toBe(true)
