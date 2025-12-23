@@ -58,7 +58,8 @@
       "!**/website/.typedoc/**",
       "!**/website/build/**",
       "!**/package.json",
-      "!**/turbo.json"
+      "!**/turbo.json",
+      "!**/.ncurc.json"
     ],
     "lineEnding": "lf",
     "lineWidth": 120,
