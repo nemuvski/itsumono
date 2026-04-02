@@ -1,3 +1,5 @@
+minimumReleaseAge: 20160 # 14 days
+
 packages:
   - 'packages/*'
   - 'website'
