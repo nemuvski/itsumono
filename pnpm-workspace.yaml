@@ -1,6 +1,14 @@
-minimumReleaseAge: 20160 # 14 days
+minimumReleaseAge: 7200 # 5 days
+
+engineStrict: true
+strictPeerDependencies: false
 
 packages:
   - 'packages/*'
   - 'website'
   - 'local/*'
+
+allowBuilds:
+  core-js: true
+  core-js-pure: true
+  esbuild: true
